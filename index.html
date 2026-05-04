@@ -140,6 +140,22 @@
             transform: translateX(8px);
         }
         
+        /* Mobile responsive menu items */
+        @media (max-width: 768px) {
+            .menu-item {
+                padding: 0.75rem !important;
+            }
+            .menu-item h3 {
+                font-size: 1rem !important;
+            }
+            .menu-item p {
+                font-size: 0.875rem !important;
+            }
+            .menu-item span {
+                font-size: 0.875rem !important;
+            }
+        }
+        
         /* Form input focus */
         .form-input {
             transition: all 0.3s ease;
@@ -207,43 +223,43 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="w-full px-6 lg:px-12">
-            <div class="flex items-center justify-between h-20">
+        <div class="w-full px-4 sm:px-6 lg:px-12">
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center">
-                    <img src="piatsa_logo.svg" alt="Piatsa Cafe" class="h-20 w-auto">
+                    <img src="piatsa_logo.svg" alt="Piatsa Cafe" class="h-12 sm:h-16 md:h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#home" class="text-sm font-medium text-anthracite-700 hover:text-sand-600 transition-colors">Home</a>
                     <a href="#menu" class="text-sm font-medium text-anthracite-700 hover:text-sand-600 transition-colors">Menu</a>
                     <a href="#booking" class="text-sm font-medium text-anthracite-700 hover:text-sand-600 transition-colors">Book Table</a>
                     <a href="#contact" class="text-sm font-medium text-anthracite-700 hover:text-sand-600 transition-colors">Contact</a>
-                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 py-3 rounded-lg text-sm font-medium">
+                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-lg text-sm font-medium">
                         Reserve Now
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden p-2 text-anthracite-800" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                    <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-sand-50 shadow-2xl z-50 md:hidden" id="mobile-menu">
-            <div class="p-6">
-                <button class="absolute top-6 right-6 p-2 text-anthracite-800" id="close-menu-btn">
-                    <i data-lucide="x" class="w-6 h-6"></i>
+        <div class="mobile-menu fixed top-0 right-0 w-64 sm:w-72 h-full bg-sand-50 shadow-2xl z-50 md:hidden" id="mobile-menu">
+            <div class="p-4 sm:p-6">
+                <button class="absolute top-4 sm:top-6 right-4 sm:right-6 p-2 text-anthracite-800" id="close-menu-btn">
+                    <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </button>
-                <div class="mt-16 flex flex-col space-y-6">
-                    <a href="#home" class="text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Home</a>
-                    <a href="#menu" class="text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Menu</a>
-                    <a href="#booking" class="text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Book Table</a>
-                    <a href="#contact" class="text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Contact</a>
-                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 py-3 rounded-lg text-center font-medium mobile-link">
+                <div class="mt-12 sm:mt-16 flex flex-col space-y-4 sm:space-y-6">
+                    <a href="#home" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Home</a>
+                    <a href="#menu" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Menu</a>
+                    <a href="#booking" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Book Table</a>
+                    <a href="#contact" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Contact</a>
+                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 py-3 rounded-lg text-center font-medium mobile-link text-sm">
                         Reserve Now
                     </a>
                 </div>
@@ -260,43 +276,48 @@
         <div class="video-overlay"></div>
         
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-sand-50 mb-6 tracking-tight fade-in">
+        <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-sand-50 mb-4 sm:mb-6 tracking-tight fade-in">
                 Crafted with Care,<br>Served with Love
             </h1>
-            <p class="text-lg md:text-xl text-sand-200 mb-10 font-light max-w-2xl mx-auto fade-in" style="transition-delay: 0.2s;">
+            <p class="text-base sm:text-lg md:text-xl text-sand-200 mb-6 sm:mb-10 font-light max-w-2xl mx-auto fade-in px-2" style="transition-delay: 0.2s;">
                 Experience the art of specialty coffee in a space where every cup tells a story.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in" style="transition-delay: 0.4s;">
-                <a href="#booking" class="btn-primary bg-sand-500 text-white px-8 py-4 rounded-lg font-medium w-full sm:w-auto text-center">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 fade-in px-4" style="transition-delay: 0.4s;">
+                <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium w-full sm:w-auto text-center text-sm sm:text-base">
                     Book a Table
                 </a>
-                <a href="#menu" class="btn-secondary border-2 border-sand-200 text-sand-100 px-8 py-4 rounded-lg font-medium w-full sm:w-auto text-center hover:text-sand-50">
+                <a href="#menu" class="btn-secondary border-2 border-sand-200 text-sand-100 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium w-full sm:w-auto text-center hover:text-sand-50 text-sm sm:text-base">
                     View Menu
                 </a>
             </div>
         </div>
         
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-            <i data-lucide="chevron-down" class="w-6 h-6 text-sand-300"></i>
+        <div class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 text-sand-300"></i>
         </div>
     </section>
     <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
-.wrapper{background:#080808;padding:5rem 0}
+.wrapper{background:#080808;padding:3rem 0}
+@media(max-width:768px){.wrapper{padding:2rem 0}}
 .eyebrow{text-align:center;letter-spacing:.35em;font-size:11px;color:rgba(255,255,255,.35);font-weight:400;text-transform:uppercase;margin-bottom:.75rem}
 .section-title{text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:13px;letter-spacing:.5em;color:rgba(255,255,255,.15);text-transform:uppercase;margin-bottom:5rem}
+@media(max-width:768px){.section-title{font-size:11px;letter-spacing:.3em;margin-bottom:3rem}}
 .grid{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;padding:0 2rem;gap:3rem}
+@media(max-width:768px){.grid{grid-template-columns:1fr;gap:2rem;padding:0 1rem}}
 .col{display:flex;flex-direction:column;align-items:center}
 .img-frame{width:100%;aspect-ratio:1/1;overflow:hidden;position:relative}
 .img-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) brightness(.88) saturate(1.12);transition:transform .8s ease}
 .img-frame:hover img{transform:scale(1.03)}
 .tag{margin-top:2.5rem;font-size:10px;letter-spacing:.45em;color:rgba(255,255,255,.3);text-transform:uppercase;font-weight:400}
 .heading{font-family:Georgia,'Times New Roman',serif;font-size:26px;letter-spacing:.2em;color:#f0ebe0;text-transform:uppercase;text-align:center;margin-top:.65rem;line-height:1.3}
+@media(max-width:768px){.heading{font-size:20px;letter-spacing:.15em}}
 .rule{width:36px;height:1px;background:rgba(255,255,255,.25);margin:1.75rem auto}
 .body{font-size:13.5px;line-height:1.9;color:rgba(255,255,255,.5);text-align:center;max-width:320px;font-weight:300;letter-spacing:.01em}
+@media(max-width:768px){.body{font-size:12px;max-width:100%}}
 .cta{display:inline-block;margin-top:2.5rem;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.4);border-bottom:.5px solid rgba(255,255,255,.2);padding-bottom:4px;cursor:pointer;transition:color .3s,border-color .3s}
 .cta:hover{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.6)}
 .divider-col{display:flex;align-items:stretch;justify-content:center;padding:0 1rem}
@@ -307,7 +328,8 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
   <p class="eyebrow">Agia Pelagia, Crete</p>
   <p class="section-title">Piatsa Cafe &nbsp;&mdash;&nbsp; The Experience</p>
 
-  <div style="display:grid;grid-template-columns:1fr auto 1fr;max-width:1100px;margin:0 auto;padding:0 2rem;gap:0">
+  <div style="display:grid;grid-template-columns:1fr auto 1fr;max-width:1100px;margin:0 auto;padding:0 2rem;gap:0" class="experience-grid">
+    <style>@media(max-width:768px){.experience-grid{grid-template-columns:1fr !important;gap:2rem !important;padding:0 1rem !important}.divider-col{display:none}}</style>
     <div class="col">
       <div class="img-frame">
         <img src="DRINKS PIXLR.png" alt="Cocktails at Piatsa Cafe" onerror="this.parentElement.style.background='#1a1a1a'">
@@ -339,44 +361,44 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
 </div>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-20 md:py-32 bg-sand-50">
-        <div class="w-full px-6 lg:px-12">
+    <section id="menu" class="py-12 md:py-20 lg:py-32 bg-sand-50">
+        <div class="w-full px-4 sm:px-6 lg:px-12">
             <!-- Section Header -->
-            <div class="text-center mb-16 fade-in">
-                <span class="text-sand-600 text-sm font-medium tracking-widest uppercase">Our Selections</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-anthracite-900 mt-3 mb-4">
+            <div class="text-center mb-10 sm:mb-16 fade-in">
+                <span class="text-sand-600 text-xs sm:text-sm font-medium tracking-widest uppercase">Our Selections</span>
+                <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-anthracite-900 mt-3 mb-4">
                     Digital Menu
                 </h2>
-                <p class="text-anthracite-600 max-w-xl mx-auto">
+                <p class="text-anthracite-600 max-w-xl mx-auto text-sm sm:text-base">
                     Curated with passion, prepared with precision. Every item is crafted to perfection.
                 </p>
             </div>
             
             <!-- Category Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
-                <button class="category-tab active px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200" data-category="breakfast">
-                    <i data-lucide="sunrise" class="w-4 h-4 inline mr-2"></i>Breakfast
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 fade-in overflow-x-auto pb-2 px-2 -mx-2">
+                <button class="category-tab active px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 whitespace-nowrap" data-category="breakfast">
+                    <i data-lucide="sunrise" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Breakfast
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="tortillas">
-                    <i data-lucide="pizza" class="w-4 h-4 inline mr-2"></i>Snacks
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="tortillas">
+                    <i data-lucide="pizza" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Snacks
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="lunch">
-                    <i data-lucide="utensils" class="w-4 h-4 inline mr-2"></i>Lunch
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="lunch">
+                    <i data-lucide="utensils" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Lunch
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="desserts">
-                    <i data-lucide="cookie" class="w-4 h-4 inline mr-2"></i>Desserts
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="desserts">
+                    <i data-lucide="cookie" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Desserts
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="coffee">
-                    <i data-lucide="coffee" class="w-4 h-4 inline mr-2"></i>Coffee
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="coffee">
+                    <i data-lucide="coffee" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Coffee
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="beverages">
-                    <i data-lucide="cup-soda" class="w-4 h-4 inline mr-2"></i>Beverages
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="beverages">
+                    <i data-lucide="cup-soda" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Beverages
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="beers">
-                    <i data-lucide="beer" class="w-4 h-4 inline mr-2"></i>Beers
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="beers">
+                    <i data-lucide="beer" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Beers
                 </button>
-                <button class="category-tab px-5 py-3 rounded-full text-sm font-medium border border-anthracite-200 text-anthracite-700" data-category="cocktails">
-                    <i data-lucide="wine" class="w-4 h-4 inline mr-2"></i>Cocktails & Spirits
+                <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="cocktails">
+                    <i data-lucide="wine" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Cocktails & Spirits
                 </button>
             </div>
 
@@ -385,29 +407,29 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 <!-- Breakfast Category -->
                 <div class="menu-category active" id="breakfast">
                     <div class="mb-4 text-center">
-                        <span class="text-anthracite-400 text-sm">Breakfast available until 12:30</span>
+                        <span class="text-anthracite-400 text-xs sm:text-sm">Breakfast available until 12:30</span>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                        <div class="menu-item p-4 sm:p-5 rounded-xl border border-sand-200 fade-in">
                             <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Fried Eggs</h3>
-                                <span class="text-sand-600 font-semibold">€7.50</span>
+                                <h3 class="text-base sm:text-lg font-semibold text-anthracite-900">Fried Eggs</h3>
+                                <span class="text-sand-600 font-semibold text-sm sm:text-base">€7.50</span>
                             </div>
-                            <p class="text-anthracite-500 text-sm">3 slices of toasted bread, 3 fried eggs</p>
+                            <p class="text-anthracite-500 text-xs sm:text-sm">3 slices of toasted bread, 3 fried eggs</p>
                         </div>
                         <!-- Avocado Cream Toast with Photo -->
-                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                        <div class="menu-item p-3 sm:p-4 rounded-xl border border-sand-200 fade-in flex gap-3 sm:gap-4 items-start">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-1">
-                                    <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
+                                    <h3 class="text-base sm:text-lg font-semibold text-anthracite-900 flex items-center gap-2">
                                         Avocado Cream Toast
                                         <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">MUST TRY</span>
                                     </h3>
-                                    <span class="text-sand-600 font-semibold">€8.50</span>
+                                    <span class="text-sand-600 font-semibold text-sm sm:text-base">€8.50</span>
                                 </div>
-                                <p class="text-anthracite-500 text-sm">2 slices toasted bread, bacon, cream cheese, smashed avocado</p>
+                                <p class="text-anthracite-500 text-xs sm:text-sm">2 slices toasted bread, bacon, cream cheese, smashed avocado</p>
                             </div>
-                            <img src="AVOCADO CREAM TOAST.jpg" alt="Avocado Cream Toast" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            <img src="AVOCADO CREAM TOAST.jpg" alt="Avocado Cream Toast" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
                         <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
                             <div class="flex justify-between items-start mb-1">
@@ -1196,72 +1218,72 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
     </section>
 
     <!-- Booking Section -->
-    <section id="booking" class="py-20 md:py-32 bg-sand-100">
-        <div class="w-full px-6 lg:px-12">
+    <section id="booking" class="py-12 md:py-20 lg:py-32 bg-sand-100">
+        <div class="w-full px-4 sm:px-6 lg:px-12">
             <div class="max-w-xl mx-auto">
                 <!-- Section Header -->
-                <div class="text-center mb-12 fade-in">
-                    <span class="text-sand-600 text-sm font-medium tracking-widest uppercase">Reservations</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-anthracite-900 mt-3 mb-4">
+                <div class="text-center mb-8 sm:mb-12 fade-in">
+                    <span class="text-sand-600 text-xs sm:text-sm font-medium tracking-widest uppercase">Reservations</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-anthracite-900 mt-3 mb-4">
                         Book Your Table
                     </h2>
-                    <p class="text-anthracite-600">
+                    <p class="text-anthracite-600 text-sm sm:text-base">
                         Reserve your spot for a perfect coffee experience. Walk-ins welcome too!
                     </p>
                 </div>
                 
                 <!-- Booking Form -->
-                        <form action="https://formspree.io/f/mnjwpooj" method="POST" class="bg-white rounded-2xl shadow-lg p-8 md:p-10 fade-in" id="booking-form">
-                    <div id="booking-error" class="hidden mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"></div>
+                        <form action="https://formspree.io/f/mnjwpooj" method="POST" class="bg-white rounded-2xl shadow-lg p-5 sm:p-6 md:p-8 lg:p-10 fade-in" id="booking-form">
+                    <div id="booking-error" class="hidden mb-4 sm:mb-6 rounded-xl border border-red-200 bg-red-50 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-red-800"></div>
                     <!-- Name Field -->
-                    <div class="mb-6">
-                        <label for="name" class="block text-sm font-medium text-anthracite-700 mb-2">
+                    <div class="mb-4 sm:mb-6">
+                        <label for="name" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
                             Full Name
                         </label>
                         <div class="relative">
-                            <i data-lucide="user" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
+                            <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
                             <input 
                                 type="text" 
                                 id="name" 
                                 name="name" 
                                 required
                                 placeholder="John Doe"
-                                class="form-input w-full pl-12 pr-4 py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none"
+                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
                             >
                         </div>
                     </div>
                     
                     <!-- Date & Time Row -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                         <!-- Date Field -->
                         <div>
-                            <label for="date" class="block text-sm font-medium text-anthracite-700 mb-2">
+                            <label for="date" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
                                 Date
                             </label>
                             <div class="relative">
-                                <i data-lucide="calendar" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
+                                <i data-lucide="calendar" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
                                 <input 
                                     type="date" 
                                     id="date" 
                                     name="date" 
                                     required
-                                    class="form-input w-full pl-12 pr-4 py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none"
+                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
                                 >
                             </div>
                         </div>
                         
                         <!-- Time Field -->
                         <div>
-                            <label for="time" class="block text-sm font-medium text-anthracite-700 mb-2">
+                            <label for="time" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
                                 Time
                             </label>
                             <div class="relative">
-                                <i data-lucide="clock" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
+                                <i data-lucide="clock" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
                                 <select 
                                     id="time" 
                                     name="time" 
                                     required
-                                    class="form-input w-full pl-12 pr-4 py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none"
+                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none text-sm"
                                 >
                                     <option value="">Select time</option>
                                     <option value="08:00">08:00 AM</option>
@@ -1278,23 +1300,23 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                     <option value="19:00">07:00 PM</option>
                                     <option value="20:00">08:00 PM</option>
                                 </select>
-                                <i data-lucide="chevron-down" class="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
+                                <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5 absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Guests Field -->
-                    <div class="mb-6">
-                        <label for="guests" class="block text-sm font-medium text-anthracite-700 mb-2">
+                    <div class="mb-4 sm:mb-6">
+                        <label for="guests" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
                             Number of Guests
                         </label>
                         <div class="relative">
-                            <i data-lucide="users" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
+                            <i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
                             <select 
                                 id="guests" 
                                 name="guests" 
                                 required
-                                class="form-input w-full pl-12 pr-4 py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none"
+                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none text-sm"
                             >
                                 <option value="">Select guests</option>
                                 <option value="1">1 Person</option>
@@ -1305,23 +1327,23 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <option value="6">6 People</option>
                                 <option value="7+">7+ People</option>
                             </select>
-                            <i data-lucide="chevron-down" class="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5 absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
                         </div>
                     </div>
                     
                     <!-- Phone Field (Optional) -->
-                    <div class="mb-8">
-                        <label for="phone" class="block text-sm font-medium text-anthracite-700 mb-2">
+                    <div class="mb-6 sm:mb-8">
+                        <label for="phone" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
                             Phone Number <span class="text-anthracite-400">(Optional)</span>
                         </label>
                         <div class="relative">
-                            <i data-lucide="phone" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
+                            <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
                             <input 
                                 type="tel" 
                                 id="phone" 
                                 name="phone"
                                 placeholder="+30 123 456 7890"
-                                class="form-input w-full pl-12 pr-4 py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none"
+                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
                             >
                         </div>
                     </div>
@@ -1329,9 +1351,9 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                     <!-- Submit Button -->
                     <button 
                         type="submit" 
-                        class="btn-primary w-full bg-sand-500 text-white py-4 rounded-xl font-semibold text-lg"
+                        class="btn-primary w-full bg-sand-500 text-white py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-lg"
                     >
-                        <i data-lucide="check-circle" class="w-5 h-5 inline mr-2"></i>
+                        <i data-lucide="check-circle" class="w-4 h-4 sm:w-5 sm:h-5 inline mr-2"></i>
                         Confirm Reservation
                     </button>
                 </form>
@@ -1356,45 +1378,45 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
     </section>
 
     <!-- Footer / Contact Section -->
-    <footer id="contact" class="py-16 bg-anthracite-900 text-sand-100">
-        <div class="w-full px-6 lg:px-12">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
+    <footer id="contact" class="py-10 sm:py-12 md:py-16 bg-anthracite-900 text-sand-100">
+        <div class="w-full px-4 sm:px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
                 <!-- Brand -->
                 <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
                         Piatsa Cafe<span class="text-sand-500">.</span>
                     </h3>
-                    <p class="text-anthracite-300 mb-6 leading-relaxed">
+                    <p class="text-anthracite-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Crafting exceptional coffee experiences in the heart of the city. Every cup, a moment of joy.
                     </p>
                     <!-- Social Icons -->
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-3 sm:space-x-4">
                         <a href="#" class="social-icon text-anthracite-300 hover:text-sand-500">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                            <i data-lucide="instagram" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                         <a href="#" class="social-icon text-anthracite-300 hover:text-sand-500">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                            <i data-lucide="facebook" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                         <a href="#" class="social-icon text-anthracite-300 hover:text-sand-500">
-                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                            <i data-lucide="twitter" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Contact Info -->
                 <div class="fade-in">
-                    <h4 class="text-lg font-semibold mb-4 text-white">Visit Us</h4>
-                    <ul class="space-y-3 text-anthracite-300">
+                    <h4 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Visit Us</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-anthracite-300 text-sm sm:text-base">
                         <li class="flex items-start">
-                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 mt-0.5 text-sand-500"></i>
+                            <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 mt-0.5 text-sand-500"></i>
                             <span>Agia Pelagia Main Street, Crete<br>71 500</span>
                         </li>
                         <li class="flex items-center">
-                            <i data-lucide="phone" class="w-5 h-5 mr-3 text-sand-500"></i>
+                            <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-sand-500"></i>
                             <span>+30 2810811162</span>
                         </li>
                         <li class="flex items-center">
-                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-sand-500"></i>
+                            <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-sand-500"></i>
                             <span>piatsacafe@hotmail.com</span>
                         </li>
                     </ul>
@@ -1402,8 +1424,8 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 
                 <!-- Hours -->
                 <div class="fade-in">
-                    <h4 class="text-lg font-semibold mb-4 text-white">Opening Hours</h4>
-                    <ul class="space-y-2 text-anthracite-300">
+                    <h4 class="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Opening Hours</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-anthracite-300 text-sm sm:text-base">
                         <li class="flex justify-between">
                             <span>Monday</span>
                             <span class="text-red-400">Closed</span>
