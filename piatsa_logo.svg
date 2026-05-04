@@ -1,0 +1,41 @@
+<svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg" width="300" height="345">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="100" cy="90" r="56"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer circle -->
+  <circle cx="100" cy="90" r="60" fill="none" stroke="#3a2d28" stroke-width="2"/>
+
+  <!-- Sun — filled circle -->
+  <circle cx="100" cy="45" r="9" fill="#3a2d28"/>
+
+  <!-- Waves clipped inside circle -->
+  <g clip-path="url(#circleClip)">
+    <!-- Wave 1 -->
+    <path d="M40 68 C52 62, 62 74, 74 68 C86 62, 96 74, 108 68 C120 62, 130 74, 160 68"
+          fill="none" stroke="#3a2d28" stroke-width="2" stroke-linecap="round"/>
+    <!-- Wave 2 -->
+    <path d="M38 82 C50 76, 62 88, 74 82 C86 76, 98 88, 110 82 C122 76, 134 88, 162 82"
+          fill="none" stroke="#3a2d28" stroke-width="2" stroke-linecap="round"/>
+    <!-- Wave 3 -->
+    <path d="M38 96 C50 90, 62 102, 74 96 C86 90, 98 102, 110 96 C122 90, 134 102, 162 96"
+          fill="none" stroke="#3a2d28" stroke-width="2" stroke-linecap="round"/>
+    <!-- Wave 4 -->
+    <path d="M40 110 C52 104, 62 116, 74 110 C86 104, 98 116, 110 110 C122 104, 134 116, 160 110"
+          fill="none" stroke="#3a2d28" stroke-width="2" stroke-linecap="round"/>
+    <!-- Wave 5 (shorter, bottom) -->
+    <path d="M50 124 C60 118, 70 130, 82 124 C94 118, 106 130, 118 124 C126 118, 136 128, 150 124"
+          fill="none" stroke="#3a2d28" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- PIATSA text — high contrast serif style -->
+  <text x="100" y="192"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="38"
+        font-weight="700"
+        fill="#3a2d28"
+        letter-spacing="6">PIATSA</text>
+</svg>
