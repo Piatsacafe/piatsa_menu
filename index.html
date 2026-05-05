@@ -63,14 +63,9 @@
         
         /* Fade-in animation */
         .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         
         /* Video background styling */
@@ -200,6 +195,12 @@
             transform: translateX(0);
         }
         
+        /* Hero CTA button hover */
+        .hero-cta:hover {
+            background-color: #333333 !important;
+            color: #d9c8b8 !important;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -217,6 +218,122 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #8B7355;
         }
+
+        /* Booking Section Dark Theme */
+        #booking {
+            background: linear-gradient(135deg, #1a1410 0%, #2d2419 50%, #1a1410 100%) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #booking::before {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(176,154,122,0.08);
+            top: -150px; right: -150px;
+            pointer-events: none;
+        }
+
+        #booking::after {
+            content: '';
+            position: absolute;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            border: 1px solid rgba(176,154,122,0.06);
+            bottom: -80px; left: -80px;
+            pointer-events: none;
+        }
+
+        #booking span.text-sand-600 {
+            color: #B09A7A !important;
+            letter-spacing: .4em !important;
+        }
+
+        #booking h2 {
+            color: #f0ebe0 !important;
+        }
+
+        #booking p.text-anthracite-600 {
+            color: rgba(255,255,255,0.4) !important;
+        }
+
+        #booking-form {
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid rgba(176,154,122,0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 20px !important;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+        }
+
+        #booking-form label {
+            color: rgba(255,255,255,0.5) !important;
+            font-size: 10px !important;
+            letter-spacing: .15em !important;
+            text-transform: uppercase !important;
+        }
+
+        #booking-form input,
+        #booking-form select {
+            background: rgba(255,255,255,0.06) !important;
+            border: 1px solid rgba(176,154,122,0.2) !important;
+            color: #f0ebe0 !important;
+            border-radius: 12px !important;
+            transition: border-color .3s, background .3s, box-shadow .3s !important;
+        }
+
+        #booking-form input::placeholder {
+            color: rgba(255,255,255,0.2) !important;
+        }
+
+        #booking-form input:focus,
+        #booking-form select:focus {
+            background: rgba(176,154,122,0.08) !important;
+            border-color: #B09A7A !important;
+            box-shadow: 0 0 0 3px rgba(176,154,122,0.12) !important;
+        }
+
+        #booking-form select option {
+            background: #2d2419;
+            color: #f0ebe0;
+        }
+
+        #booking-form .text-anthracite-400 {
+            color: rgba(176,154,122,0.5) !important;
+        }
+
+        #booking-form button[type="submit"] {
+            background: linear-gradient(135deg, #B09A7A, #8B7355) !important;
+            border-radius: 14px !important;
+            font-size: 12px !important;
+            letter-spacing: .12em !important;
+            text-transform: uppercase !important;
+            font-weight: 600 !important;
+            box-shadow: 0 8px 24px rgba(176,154,122,0.3) !important;
+            transition: transform .2s, box-shadow .2s !important;
+        }
+
+        #booking-form button[type="submit"]:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 32px rgba(176,154,122,0.45) !important;
+        }
+
+        #booking-error {
+            background: rgba(239,68,68,0.1) !important;
+            border: 1px solid rgba(239,68,68,0.2) !important;
+            color: #fca5a5 !important;
+            border-radius: 10px !important;
+        }
+
+        #success-message {
+            background: rgba(34,197,94,0.08) !important;
+            border: 1px solid rgba(34,197,94,0.15) !important;
+            border-radius: 20px !important;
+        }
+
+        #success-message h3 { color: #86efac !important; }
+        #success-message p  { color: rgba(134,239,172,0.7) !important; }
     </style>
 </head>
 <body class="font-sans bg-sand-50 text-anthracite-800">
@@ -267,37 +384,114 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Hero Image Background -->
+    <!-- Hero Section – Offset Split-Card Layout -->
+    <section id="home" class="relative overflow-hidden" style="min-height:100vh;">
+
+        <!-- Background image with soft tint -->
         <div class="absolute inset-0 z-0">
-            <img src="piatsafront.png" alt="Piatsa Cafe Exterior" class="w-full h-full object-cover scale-105 blur-[2px]">
+            <img src="backround.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div style="position:absolute; inset:0; background:rgba(245,240,234,0.28);"></div>
         </div>
-        <div class="video-overlay"></div>
-        
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
-            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-sand-50 mb-4 sm:mb-6 tracking-tight fade-in">
-                Crafted with Care,<br>Served with Love
-            </h1>
-            <p class="text-base sm:text-lg md:text-xl text-sand-200 mb-6 sm:mb-10 font-light max-w-2xl mx-auto fade-in px-2" style="transition-delay: 0.2s;">
-                Experience the art of specialty coffee in a space where every cup tells a story.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 fade-in px-4" style="transition-delay: 0.4s;">
-                <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium w-full sm:w-auto text-center text-sm sm:text-base">
-                    Book a Table
+
+        <!-- Decorative wavy lines (top-right) -->
+        <div class="absolute top-0 right-0 pointer-events-none select-none" style="width:50%; height:100%; opacity:0.18; overflow:hidden; z-index:1;">
+            <svg viewBox="0 0 520 700" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;top:0;right:0;">
+                <path d="M520 30 C400 55 280 5 160 30 C60 52 20 18 0 38" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 75 C400 100 280 50 160 75 C60 97 20 63 0 83" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 120 C400 145 280 95 160 120 C60 142 20 108 0 128" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 165 C400 190 280 140 160 165 C60 187 20 153 0 173" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 210 C400 235 280 185 160 210 C60 232 20 198 0 218" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 255 C400 280 280 230 160 255 C60 277 20 243 0 263" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 300 C400 325 280 275 160 300 C60 322 20 288 0 308" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 345 C400 370 280 320 160 345 C60 367 20 333 0 353" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 390 C400 415 280 365 160 390 C60 412 20 378 0 398" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 435 C400 460 280 410 160 435 C60 457 20 423 0 443" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 480 C400 505 280 455 160 480 C60 502 20 468 0 488" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 525 C400 550 280 500 160 525 C60 547 20 513 0 533" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 570 C400 595 280 545 160 570 C60 592 20 558 0 578" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 615 C400 640 280 590 160 615 C60 637 20 603 0 623" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+                <path d="M520 660 C400 685 280 635 160 660 C60 682 20 648 0 668" stroke="#9e7a58" stroke-width="0.9" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- ── DESKTOP layout (md and above) ── -->
+        <div class="hidden md:flex items-center" style="position:relative; z-index:2; min-height:100vh; padding-top:80px;">
+            <div style="position:relative; width:100%; height:560px;">
+
+                <!-- Beige card – starts from the very left edge -->
+                <div style="position:absolute; left:0; top:50%; transform:translateY(-50%); width:57%; background:#d9c8b8; z-index:1; display:flex; flex-direction:column; justify-content:center; padding:64px 7% 64px 7%;">
+                    <!-- Brand label -->
+                    <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+                        <div style="width:36px; height:1px; background:#8B6044;"></div>
+                        <span style="color:#8B6044; font-size:11px; letter-spacing:0.2em; font-weight:500; text-transform:uppercase; font-family:'Montserrat',sans-serif;">Est. 1989 · Agia Pelagia, Crete</span>
+                    </div>
+                    <!-- Headline -->
+                    <h1 style="color:#333333; font-size:clamp(1.8rem,2.8vw,2.6rem); font-weight:700; line-height:1.18; margin-bottom:20px; font-family:'Montserrat',sans-serif;">
+                        Sun, Sea &amp;<br>Signature Cocktails
+                    </h1>
+                    <!-- Subtitle -->
+                    <p style="color:#4a4a4a; font-size:0.9rem; line-height:1.85; margin-bottom:40px; max-width:320px; font-weight:300; font-family:'Montserrat',sans-serif;">
+                        Since 1989, we've been serving handcrafted cocktails, all-day snacks, and the finest coffee — right where the sea breeze meets good company.
+                    </p>
+                </div>
+
+                <!-- mastiha_kiss image – overlapping right side, anchored left so it stays connected to the beige card -->
+                <div style="position:absolute; right:3%; top:50%; transform:translateY(-50%); width:47%; height:540px; z-index:2;">
+                    <img src="mastiha_kiss.jpg" alt="Mastiha Kiss – Signature Cocktail" style="width:100%; height:100%; object-fit:contain; display:block; object-position:left center;">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── MOBILE layout (below md) ── -->
+        <div class="md:hidden flex flex-col" style="position:relative; z-index:2; padding-top:70px;">
+            <div style="width:100%; aspect-ratio:1/1; overflow:hidden;">
+                <img src="mastiha_kiss.jpg" alt="Mastiha Kiss – Signature Cocktail" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div style="background:#d9c8b8; padding:40px 28px;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+                    <div style="width:28px; height:1px; background:#8B6044;"></div>
+                    <span style="color:#8B6044; font-size:9.5px; letter-spacing:0.18em; font-weight:500; text-transform:uppercase;">Est. 1989 · Agia Pelagia</span>
+                </div>
+                <h1 style="color:#333333; font-size:1.8rem; font-weight:700; line-height:1.2; margin-bottom:14px; font-family:'Montserrat',sans-serif;">
+                    Sun, Sea &amp;<br>Signature Cocktails
+                </h1>
+                <p style="color:#4a4a4a; font-size:0.875rem; line-height:1.8; margin-bottom:28px; font-weight:300;">
+                    Since 1989, handcrafted cocktails, all-day snacks & specialty coffee — right by the Cretan sea.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce" style="z-index:10;">
+            <i data-lucide="chevron-down" class="w-5 h-5" style="color:#333333;"></i>
+        </div>
+
+    </section>
+    <!-- Image CTA Section: Menus & Book Today -->
+    <section class="py-12 md:py-16 bg-sand-50 relative overflow-hidden">
+        <!-- Decorative wavy lines background -->
+        <div class="absolute inset-0 pointer-events-none" style="opacity:0.4; z-index:0;">
+            <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%; height:100%;">
+                <path d="M-50 100 C100 60 250 140 400 100 C550 60 700 140 850 100" stroke="#d9c8b8" stroke-width="1" fill="none"/>
+                <path d="M-50 200 C100 160 250 240 400 200 C550 160 700 240 850 200" stroke="#d9c8b8" stroke-width="1" fill="none"/>
+                <path d="M-50 300 C100 260 250 340 400 300 C550 260 700 340 850 300" stroke="#d9c8b8" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <!-- Menus Card -->
+                <a href="#menu" class="group relative overflow-hidden rounded-2xl block" style="aspect-ratio: 4/3;">
+                    <img src="menu.jpg" alt="Our Menus" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </a>
-                <a href="#menu" class="btn-secondary border-2 border-sand-200 text-sand-100 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium w-full sm:w-auto text-center hover:text-sand-50 text-sm sm:text-base">
-                    View Menu
+                <!-- Book Today Card -->
+                <a href="#booking" class="group relative overflow-hidden rounded-2xl block" style="aspect-ratio: 4/3;">
+                    <img src="book_today.jpg" alt="Book Today" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </a>
             </div>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-            <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 text-sand-300"></i>
-        </div>
     </section>
+
     <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
@@ -359,6 +553,44 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
     <p style="font-size:10px;letter-spacing:.45em;color:rgba(255,255,255,.15);text-transform:uppercase">Tuesday – Sunday &nbsp;&bull;&nbsp; 09:00 – 00:00</p>
   </div>
 </div>
+
+    <!-- Gallery Slideshow Section -->
+    <section class="py-12 md:py-16" style="background: linear-gradient(180deg, #080808 0%, #141414 25%, #222222 50%, #333333 75%, #444444 100%);">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Label -->
+            <div class="text-center mb-6 fade-in">
+                <span class="text-sand-600 text-xs font-medium tracking-widest uppercase">Our Space</span>
+            </div>
+            <!-- Slideshow Container -->
+            <div class="relative overflow-hidden rounded-2xl" id="gallery-slideshow">
+                <!-- Slides -->
+                <div class="gallery-slides flex transition-transform duration-700 ease-in-out" id="gallery-track">
+                    <div class="gallery-slide flex-shrink-0 w-full">
+                        <img src="exterior1.jpg" alt="Piatsa Cafe" class="w-full object-cover" style="height:420px;">
+                    </div>
+                    <div class="gallery-slide flex-shrink-0 w-full">
+                        <img src="exterior2.jpg" alt="Piatsa Cafe" class="w-full object-cover" style="height:420px;">
+                    </div>
+                    <div class="gallery-slide flex-shrink-0 w-full">
+                        <img src="exterior3.jpg" alt="Piatsa Cafe" class="w-full object-cover" style="height:420px;">
+                    </div>
+                </div>
+                <!-- Prev / Next Arrows -->
+                <button id="gallery-prev" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-white/70 hover:bg-white transition-colors shadow-sm" aria-label="Previous">
+                    <i data-lucide="chevron-left" class="w-5 h-5 text-anthracite-700"></i>
+                </button>
+                <button id="gallery-next" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-white/70 hover:bg-white transition-colors shadow-sm" aria-label="Next">
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-anthracite-700"></i>
+                </button>
+                <!-- Dot Indicators -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="gallery-dots">
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white opacity-100 transition-opacity" data-index="0"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white opacity-40 transition-opacity" data-index="1"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white opacity-40 transition-opacity" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Menu Section -->
     <section id="menu" class="py-12 md:py-20 lg:py-32 bg-sand-50">
@@ -431,12 +663,15 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="AVOCADO CREAM TOAST.jpg" alt="Avocado Cream Toast" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Croissant*</h3>
-                                <span class="text-sand-600 font-semibold">€3.50</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Croissant*</h3>
+                                    <span class="text-sand-600 font-semibold">€3.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Marmalade or chocolate dip</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Marmalade or chocolate dip</p>
+                            <img src="CROISSANT.jpg" alt="Croissant" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
                         <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
                             <div class="flex justify-between items-start mb-1">
@@ -512,15 +747,18 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="PORK GYROS TORTILLA.jpg" alt="Tortilla Pork Gyros" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
-                                    Spring Rolls*
-                                    <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">MUST TRY</span>
-                                </h3>
-                                <span class="text-sand-600 font-semibold">€6.50</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
+                                        Spring Rolls*
+                                        <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">MUST TRY</span>
+                                    </h3>
+                                    <span class="text-sand-600 font-semibold">€6.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Crispy vegetable spring rolls with sweet chilli sauce</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Crispy vegetable spring rolls with sweet chilli sauce</p>
+                            <img src="SPRING ROLLS.jpg" alt="Spring Rolls" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
                         <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
                             <div class="flex justify-between items-start mb-1">
@@ -701,11 +939,14 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 </div>
                                 <img src="BANNA BUENO PANCAKE.jpg" alt="Banana Bueno Crunch" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
-                            <div class="menu-item p-5 rounded-xl border-2 border-sand-400 bg-sand-50 fade-in">
-                                <div class="flex justify-between items-start mb-1">
-                                    <h3 class="text-lg font-semibold text-anthracite-900">Crushed Nuts & Honey</h3>
-                                    <span class="text-sand-600 font-semibold">€6.50</span>
+                            <div class="menu-item p-4 rounded-xl border-2 border-sand-400 bg-sand-50 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Crushed Nuts & Honey</h3>
+                                        <span class="text-sand-600 font-semibold">€6.50</span>
+                                    </div>
                                 </div>
+                                <img src="WAFFLE CRUSHED NUTS.jpg" alt="Waffle with Crushed Nuts" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
                             <div class="menu-item p-5 rounded-xl border-2 border-sand-400 bg-sand-50 fade-in">
                                 <div class="flex justify-between items-start mb-1">
@@ -715,27 +956,59 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <p class="text-anthracite-500 text-sm">With toppings of your choice</p>
                             </div>
                         </div>
-                        <div class="mt-6 pt-4 border-t-2 border-sand-300">
-                            <h4 class="font-semibold text-anthracite-800 mb-3">Ice Cream per scoop €2.50</h4>
-                            <div class="grid grid-cols-3 md:grid-cols-5 gap-3 text-sm mb-6">
-                                <span>Vanilla</span>
-                                <span>Chocolate</span>
-                                <span>Banana</span>
-                                <span>Strawberry</span>
-                                <span>Cookies</span>
-                                <span>Stracciatella</span>
-                                <span>Pistachio</span>
-                                <span>Yogurt</span>
-                                <span>Bueno</span>
+                        <!-- Ice Cream & Extras — minimalist -->
+                        <div class="mt-8 pt-6 border-t border-sand-200">
+
+                            <!-- Ice Cream header -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Ice Cream</span>
+                                <span class="flex-1 h-px bg-sand-200"></span>
+                                <span class="text-xs text-sand-500 tracking-wide">per scoop &nbsp;€2.50</span>
                             </div>
-                            <h4 class="font-semibold text-anthracite-800 mb-3">Extras</h4>
-                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                                <div class="text-sm"><span class="font-medium">Fresh Fruits</span> <span class="text-sand-600">€1.50</span></div>
-                                <div class="text-sm"><span class="font-medium">Forest Fruits*</span> <span class="text-sand-600">€1.50</span></div>
-                                <div class="text-sm"><span class="font-medium">Crushed Nuts</span> <span class="text-sand-600">€0.50</span></div>
-                                <div class="text-sm"><span class="font-medium">Whipped Cream</span> <span class="text-sand-600">€0.50</span></div>
-                                <div class="text-sm"><span class="font-medium">1 Scoop Ice Cream</span> <span class="text-sand-600">€1.50</span></div>
+
+                            <!-- Flavour pills -->
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Vanilla</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Chocolate</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Banana</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Strawberry</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Cookies</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Stracciatella</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Pistachio</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Yogurt</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Bueno</span>
                             </div>
+
+                            <!-- Extras header -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Extras</span>
+                                <span class="flex-1 h-px bg-sand-200"></span>
+                            </div>
+
+                            <!-- Extras list -->
+                            <div class="flex flex-col divide-y divide-sand-200 max-w-xs">
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-xs text-anthracite-700">Fresh Fruits</span>
+                                    <span class="text-xs text-sand-500">€1.50</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-xs text-anthracite-700">Forest Fruits</span>
+                                    <span class="text-xs text-sand-500">€1.50</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-xs text-anthracite-700">Crushed Nuts</span>
+                                    <span class="text-xs text-sand-500">€0.50</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-xs text-anthracite-700">Whipped Cream</span>
+                                    <span class="text-xs text-sand-500">€0.50</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2">
+                                    <span class="text-xs text-anthracite-700">1 Scoop Ice Cream</span>
+                                    <span class="text-xs text-sand-500">€1.50</span>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <!-- Other Desserts Section -->
@@ -1052,6 +1325,212 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
 
                 <!-- Cocktails & Spirits Category -->
                 <div class="menu-category hidden" id="cocktails">
+                    <!-- Cocktails -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Classic Cocktails</h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Mojito</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍹</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Strawberry Daiquiri</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <img src="strawberry_daiquiri.jpg" alt="Strawberry Daiquiri" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Mango Daiquiri</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <img src="mango_daiquiri.jpg" alt="Mango Daiquiri" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Sex on the Beach</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-orange-200 to-pink-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍑</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Caipirinha</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-green-200 to-lime-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍋</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Moscow Mule</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-copper-200 to-orange-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🫚</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Pina Colada</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <img src="PINA COLADA.jpg" alt="Pina Colada" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Mai Tai</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-amber-200 to-orange-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🌺</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Margarita</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-green-200 to-teal-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍸</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
+                                            Pornstar Martini
+                                            <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">POPULAR</span>
+                                        </h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <img src="pornstar martini.jpg" alt="Pornstar Martini" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Paloma</h3>
+                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍊</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Signature Cocktails -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Signature Cocktails</h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <!-- Berry Bliss - Featured -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                                <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Berry Bliss</span>
+                                    <div class="flex flex-wrap gap-1.5 mb-2">
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-200 text-yellow-800">Sour</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-200 text-red-800">Berries</span>
+                                    </div>
+                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                </div>
+                            </div>
+                            <!-- Mastiha Kiss - Featured -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                                <img src="mastiha_kiss.jpg" alt="Mastiha Kiss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Mastiha Kiss</span>
+                                    <div class="flex flex-wrap gap-1.5 mb-2">
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 text-sky-700">Mastiha</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-orange-200 text-orange-800">Peach</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-700">Strawberry</span>
+                                    </div>
+                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                </div>
+                            </div>
+                            <!-- Strawberry Twist - Featured -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                                <div class="w-32 h-32 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🍓</span>
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Strawberry Twist</span>
+                                    <div class="flex flex-wrap gap-1.5 mb-2">
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-200 text-yellow-800">Banana</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-700">Strawberry</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium" style="background-color: #713600; color: #FFFFFF;">Chocolaty</span>
+                                    </div>
+                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mocktails -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Mocktails - Alcohol Free </h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Virgin Mojito</h3>
+                                        <span class="text-sand-600 font-semibold">€6.50</span>
+                                    </div>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-br from-green-200 to-emerald-200 rounded-xl flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-4xl">🌿</span>
+                                </div>
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Virgin Pina Colada</h3>
+                                        <span class="text-sand-600 font-semibold">€6.50</span>
+                                    </div>
+                                </div>
+                                <img src="PINA COLADA.jpg" alt="Virgin Pina Colada" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Passion Fruit Lover</h3>
+                                        <span class="text-sand-600 font-semibold">€6.50</span>
+                                    </div>
+                                </div>
+                                <img src="PASSION FRUIT LOVER.jpg" alt="Passion Fruit Lover" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Spritz -->
                     <div class="mb-6">
                         <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Spritz</h4>
@@ -1090,6 +1569,8 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                         </div>
                     </div>
+
+                    <!-- Other Spirits -->
                     <!-- Wine -->
                     <div class="mb-6">
                         <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Wine by glass</h4>
@@ -1145,7 +1626,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Courvoisier</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>METAXA 5</span><span class="text-sand-600 font-semibold">€6.00</span></div></div>
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>METAXA 7</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-
                         </div>
                     </div>
                     <!-- Liqueur -->
@@ -1158,52 +1638,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Campari</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Bellini</span><span class="text-sand-600 font-semibold">€5.00</span></div></div>
                             <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Courvoisier</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                        </div>
-                    </div>
-                    <!-- Cocktails -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Cocktails</h4>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Mojito</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Strawberry or Mango Daiquiri</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Sex on the Beach</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Caipirinha</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Moscow Mule</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Pina Colada</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Mai Tai</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Margarita</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Pornstar Martini</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Paloma</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                        </div>
-                    </div>
-                    <!-- Mocktails -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Mocktails</h4>
-                        <div class="grid md:grid-cols-3 gap-3">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Virgin Mojito</span><span class="text-sand-600 font-semibold">€6.50</span></div></div>
-                            <!-- Virgin Pina Colada with Photo -->
-                            <div class="menu-item p-3 rounded-lg border border-sand-200 flex gap-3 items-center">
-                                <img src="PINA COLADA.jpg" alt="Virgin Pina Colada" class="w-16 h-16 rounded-lg object-cover flex-shrink-0">
-                                <div class="flex-1"><div class="flex justify-between"><span class="font-medium">Virgin Pina Colada</span><span class="text-sand-600 font-semibold">€6.50</span></div></div>
-                            </div>
-                            <!-- Passion Fruit Lover with Photo -->
-                            <div class="menu-item p-3 rounded-lg border border-sand-200 flex gap-3 items-center">
-                                <img src="PASSION FRUIT LOVER.jpg" alt="Passion Fruit Lover" class="w-16 h-16 rounded-lg object-cover flex-shrink-0">
-                                <div class="flex-1"><div class="flex justify-between"><span class="font-medium">Passion Fruit Lover</span><span class="text-sand-600 font-semibold">€6.50</span></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Signature -->
-                    <div>
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Signature</h4>
-                        <div class="grid md:grid-cols-3 gap-3">
-                            <!-- Berry Bliss with Photo -->
-                            <div class="menu-item p-3 rounded-lg border border-sand-200 flex gap-3 items-center">
-                                <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" class="w-16 h-16 rounded-lg object-cover flex-shrink-0">
-                                <div class="flex-1"><div class="flex justify-between"><span class="font-medium">Berry Bliss</span><span class="text-sand-600 font-semibold">€10.00</span></div></div>
-                            </div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Mastiha Kiss</span><span class="text-sand-600 font-semibold">€10.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Strawberry Twist</span><span class="text-sand-600 font-semibold">€10.00</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -1285,20 +1719,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                     required
                                     class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none text-sm"
                                 >
-                                    <option value="">Select time</option>
-                                    <option value="08:00">08:00 AM</option>
-                                    <option value="09:00">09:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="13:00">01:00 PM</option>
-                                    <option value="14:00">02:00 PM</option>
-                                    <option value="15:00">03:00 PM</option>
-                                    <option value="16:00">04:00 PM</option>
-                                    <option value="17:00">05:00 PM</option>
-                                    <option value="18:00">06:00 PM</option>
-                                    <option value="19:00">07:00 PM</option>
-                                    <option value="20:00">08:00 PM</option>
+                                    <option value="">Pick a date first</option>
                                 </select>
                                 <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5 absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
                             </div>
@@ -1495,21 +1916,13 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
             }
         });
         
-        // Fade-in animation on scroll
+        // Fade-in animation on scroll - elements are visible by default, animate on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
         
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        fadeElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
         });
-        
-        fadeElements.forEach(el => fadeObserver.observe(el));
         
         // Menu Category Tabs
         const categoryTabs = document.querySelectorAll('.category-tab');
@@ -1536,15 +1949,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 const activeCategory = document.getElementById(category);
                 activeCategory.classList.remove('hidden');
                 activeCategory.classList.add('active');
-                
-                // Re-trigger animations for visible items
-                const visibleItems = activeCategory.querySelectorAll('.menu-item');
-                visibleItems.forEach((item, index) => {
-                    item.classList.remove('visible');
-                    setTimeout(() => {
-                        item.classList.add('visible');
-                    }, index * 100);
-                });
             });
         });
         
@@ -1560,6 +1964,38 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
         
         // Formspree handles form submission natively - no custom JS needed
         
+        // Gallery Slideshow
+        (function() {
+            const track = document.getElementById('gallery-track');
+            const dots  = document.querySelectorAll('.gallery-dot');
+            const total = dots.length;
+            let current = 0;
+            let timer;
+
+            function goTo(index) {
+                current = (index + total) % total;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((d, i) => {
+                    d.style.opacity = i === current ? '1' : '0.4';
+                });
+            }
+
+            function next() { goTo(current + 1); }
+            function prev() { goTo(current - 1); }
+
+            function startAuto() { timer = setInterval(next, 4000); }
+            function resetAuto()  { clearInterval(timer); startAuto(); }
+
+            document.getElementById('gallery-next').addEventListener('click', () => { next(); resetAuto(); });
+            document.getElementById('gallery-prev').addEventListener('click', () => { prev(); resetAuto(); });
+
+            dots.forEach(d => {
+                d.addEventListener('click', () => { goTo(+d.dataset.index); resetAuto(); });
+            });
+
+            startAuto();
+        })();
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1573,13 +2009,11 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 }
             });
         });
-    </script>
-    <script>
+
         const timeSelect = document.getElementById('time');
 
-        // --- Valid booking slots (24-hour format to match HTML) ---
         const allSlots = [
-            { value: '09:00', label: '09:00 AM' },
+            { value: '08:00', label: '08:00 AM' },
             { value: '10:00', label: '10:00 AM' },
             { value: '11:00', label: '11:00 AM' },
             { value: '12:00', label: '12:00 PM' },
@@ -1661,5 +2095,57 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
             timeSelect.innerHTML = '<option value="">Select time</option>';
         }
     </script>
+    <button 
+    id="scroll-top-btn"
+    aria-label="Back to top"
+    style="
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        z-index: 999;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #B09A7A;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    "
+>
+    <i data-lucide="chevron-up" style="width:20px;height:20px;"></i>
+</button>
+
+<script>
+    // Scroll-to-top logic
+    const scrollBtn = document.getElementById('scroll-top-btn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.transform = 'translateY(0)';
+            scrollBtn.style.pointerEvents = 'auto';
+        } else {
+            scrollBtn.style.opacity = '0';
+            scrollBtn.style.transform = 'translateY(12px)';
+            scrollBtn.style.pointerEvents = 'none';
+        }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Re-init Lucide so the new chevron-up icon renders
+    lucide.createIcons();
+</script>
+
 </body>
 </html>
