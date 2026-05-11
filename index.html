@@ -15,6 +15,9 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Flatpickr Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
     <!-- Tailwind Config for Custom Colors -->
     <script>
@@ -334,6 +337,18 @@
 
         #success-message h3 { color: #86efac !important; }
         #success-message p  { color: rgba(134,239,172,0.7) !important; }
+
+        /* Flatpickr customisation */
+        .flatpickr-calendar { font-family: 'Montserrat', sans-serif; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border: 1px solid #e8ddd0; }
+        .flatpickr-day.selected, .flatpickr-day.selected:hover, .flatpickr-day.selected:focus { background: #b8895a; border-color: #b8895a; }
+        .flatpickr-day:hover { background: #f5ede0; border-color: #f5ede0; }
+        .flatpickr-day.today { border-color: #b8895a; }
+        .flatpickr-day.today:hover { background: #f5ede0; }
+        .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: #d4c4b0 !important; background: transparent; cursor: not-allowed; text-decoration: line-through; }
+        .flatpickr-months .flatpickr-month, .flatpickr-weekdays { background: #f5ede0; }
+        .flatpickr-current-month .flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year { color: #3d3028; }
+        .flatpickr-weekday { color: #8B6044; font-weight: 600; }
+        span.flatpickr-weekday[aria-label="Monday"] { color: #d4c4b0; }
     </style>
 </head>
 <body class="font-sans bg-sand-50 text-anthracite-800">
@@ -619,8 +634,9 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 </p>
             </div>
             
-            <!-- Category Tabs -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 fade-in overflow-x-auto pb-2 px-2 -mx-2">
+            <!-- Category Tabs — sticky -->
+            <div class="sticky top-16 sm:top-20 z-40 bg-sand-50 -mx-4 sm:-mx-6 lg:-mx-12 px-4 sm:px-6 lg:px-12 py-3 mb-8 border-b border-sand-200 fade-in">
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 overflow-x-auto pb-1 px-2 -mx-2">
                 <button class="category-tab active px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 whitespace-nowrap" data-category="breakfast">
                     <i data-lucide="sunrise" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Breakfast
                 </button>
@@ -645,22 +661,30 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 <button class="category-tab px-4 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-anthracite-200 text-anthracite-700 whitespace-nowrap" data-category="cocktails">
                     <i data-lucide="wine" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2"></i>Cocktails & Spirits
                 </button>
+                </div>
             </div>
 
             <!-- Menu Content -->
             <div class="max-w-5xl mx-auto">
                 <!-- Breakfast Category -->
                 <div class="menu-category active" id="breakfast">
-                    <div class="mb-4 text-center">
-                        <span class="text-anthracite-400 text-xs sm:text-sm">Breakfast available until 12:30</span>
+
+                    <!-- Until 12:30 sub-group -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-px bg-sand-400 w-5"></div>
+                        <span class="text-sand-600 text-sm font-bold tracking-widest uppercase">Until 12:30</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                        <div class="menu-item p-4 sm:p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-base sm:text-lg font-semibold text-anthracite-900">Fried Eggs</h3>
-                                <span class="text-sand-600 font-semibold text-sm sm:text-base">€7.50</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6">
+                        <div class="menu-item p-4 sm:p-5 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-base sm:text-lg font-semibold text-anthracite-900">Fried Eggs</h3>
+                                    <span class="text-sand-600 font-semibold text-sm sm:text-base">€7.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-xs sm:text-sm">3 slices of toasted bread, 3 fried eggs</p>
                             </div>
-                            <p class="text-anthracite-500 text-xs sm:text-sm">3 slices of toasted bread, 3 fried eggs</p>
+                            <img src="fried-eggs.jpg" alt="Fried Eggs" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍳</span></div>
                         </div>
                         <!-- Avocado Cream Toast with Photo -->
                         <div class="menu-item p-3 sm:p-4 rounded-xl border border-sand-200 fade-in flex gap-3 sm:gap-4 items-start">
@@ -676,6 +700,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="AVOCADO CREAM TOAST.jpg" alt="Avocado Cream Toast" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
+                        <!-- Croissant -->
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-1">
@@ -686,14 +711,18 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="CROISSANT.jpg" alt="Croissant" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Toast</h3>
-                                <span class="text-sand-600 font-semibold">€3.50</span>
-                            </div>
-                            <p class="text-anthracite-500 text-sm">Cheese, ham or turkey</p>
-                        </div>
-                        <!-- Granola Bowl with Photo -->
+                    </div>
+
+                    <!-- Divider -->
+                    <hr class="border-sand-200 mb-6">
+
+                    <!-- All Day sub-group -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-px bg-anthracite-300 w-5"></div>
+                        <span class="text-anthracite-600 text-sm font-bold tracking-widest uppercase">All Day</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                        <!-- Granola Bowl -->
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-1">
@@ -704,7 +733,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="GRANOLA BOWL FRESH FRUITS.jpg" alt="Granola Bowl with Fresh Fruits" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <!-- Granola Bowl with Red Berries with Photo -->
+                        <!-- Granola Bowl with Red Berries -->
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-1">
@@ -715,7 +744,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="GRANOLA BERRIES.jpg" alt="Granola Bowl with Red Berries" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <!-- Yogurt with Crushed Nuts & Honey with Photo -->
+                        <!-- Yogurt -->
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-1">
@@ -727,6 +756,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             <img src="YOGURT WITH NUTS.jpg" alt="Yogurt with Crushed Nuts & Honey" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Snacks Category (Tortillas, Pizza & Baguettes) -->
@@ -773,12 +803,16 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
                             <img src="SPRING ROLLS.jpg" alt="Spring Rolls" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Pizza Special*</h3>
-                                <span class="text-sand-600 font-semibold">€10.00</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Pizza Special*</h3>
+                                    <span class="text-sand-600 font-semibold">€10.00</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Tomato sauce, bacon, pepperoni, mozzarella, gouda, bell pepper, fresh tomato</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Tomato sauce, bacon, pepperoni, mozzarella, gouda, bell pepper, fresh tomato</p>
+                            <img src="pizza-special.jpg" alt="Pizza Special" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍕</span></div>
                         </div>
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
@@ -792,6 +826,14 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <img src="pizza margarita.jpg" alt="Pizza Margarita" class="w-full h-full object-cover" style="transform:scale(1.08);">
                             </div>
                         </div>
+                        <!-- Toast -->
+                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="text-lg font-semibold text-anthracite-900">Toast</h3>
+                                <span class="text-sand-600 font-semibold">€3.50</span>
+                            </div>
+                            <p class="text-anthracite-500 text-sm">Cheese, ham or turkey</p>
+                        </div>
                     </div>
                     <div class="mt-4 mb-6 text-center">
                         <span class="text-sm text-anthracite-500">*Tortillas: Add Fries €2.00</span>
@@ -803,12 +845,16 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             Freshly Made
                         </h4>
                         <div class="grid md:grid-cols-2 gap-4">
-                            <div class="menu-item p-5 rounded-xl border-2 border-sand-300 bg-sand-50 fade-in">
-                                <div class="flex justify-between items-start mb-1">
-                                    <h3 class="text-lg font-semibold text-anthracite-900">Turkey</h3>
-                                    <span class="text-sand-600 font-semibold">€4.50</span>
+                            <div class="menu-item p-4 rounded-xl border-2 border-sand-300 bg-sand-50 fade-in flex gap-4 items-start">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h3 class="text-lg font-semibold text-anthracite-900">Turkey</h3>
+                                        <span class="text-sand-600 font-semibold">€4.50</span>
+                                    </div>
+                                    <p class="text-anthracite-500 text-sm">Cheese, lettuce, tomato, cucumber, mayonnaise</p>
                                 </div>
-                                <p class="text-anthracite-500 text-sm">Cheese, lettuce, tomato, cucumber, mayonnaise</p>
+                                <img src="turkey-baguette.jpg" alt="Turkey Baguette" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🥖</span></div>
                             </div>
                             <!-- Premium Smoked Ham with Photo -->
                             <div class="menu-item p-4 rounded-xl border-2 border-sand-300 bg-sand-50 fade-in flex gap-4 items-start">
@@ -855,22 +901,30 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         <span class="text-anthracite-400 text-sm">Lunch available until 19:00</span>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
-                                    Crispy Chicken Club Sandwich*
-                                    <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">MUST TRY</span>
-                                </h3>
-                                <span class="text-sand-600 font-semibold">€10.00</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
+                                        Crispy Chicken Club Sandwich*
+                                        <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">MUST TRY</span>
+                                    </h3>
+                                    <span class="text-sand-600 font-semibold">€10.00</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Gouda, bacon, iceberg, chicken sauce, served with fries</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Gouda, bacon, iceberg, chicken sauce, served with fries</p>
+                            <img src="crispy-chicken-club-sandwich.jpg" alt="Crispy Chicken Club Sandwich" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🥪</span></div>
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Club Sandwich</h3>
-                                <span class="text-sand-600 font-semibold">€8.50</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Club Sandwich</h3>
+                                    <span class="text-sand-600 font-semibold">€8.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Turkey, gouda, bacon, tomato, lettuce, cucumber, cocktail sauce, served with fries</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Turkey, gouda, bacon, tomato, lettuce, cucumber, cocktail sauce, served with fries</p>
+                            <img src="club-sandwich.jpg" alt="Club Sandwich" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🥪</span></div>
                         </div>
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
@@ -884,19 +938,27 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <img src="pork gyros plate.png" alt="Pork Gyros Plate" class="w-full h-full object-cover" style="transform:scale(1.08);">
                             </div>
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Chicken Burger*</h3>
-                                <span class="text-sand-600 font-semibold">€9.50</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Chicken Burger*</h3>
+                                    <span class="text-sand-600 font-semibold">€9.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Brioche bread, cheddar, iceberg, mayonnaise, served with fries</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Brioche bread, cheddar, iceberg, mayonnaise, served with fries</p>
+                            <img src="chicken-burger.jpg" alt="Chicken Burger" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍔</span></div>
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Cheese Burger*</h3>
-                                <span class="text-sand-600 font-semibold">€9.50</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Cheese Burger*</h3>
+                                    <span class="text-sand-600 font-semibold">€9.50</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Brioche bread, cheddar, ketchup, mustard, mayonnaise, served with fries</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Brioche bread, cheddar, ketchup, mustard, mayonnaise, served with fries</p>
+                            <img src="cheese-burger.jpg" alt="Cheese Burger" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍔</span></div>
                         </div>
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
@@ -910,18 +972,26 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <img src="ceasar salad.jpg" alt="Caesar Salad" class="w-full h-full object-cover" style="transform:scale(1.08);">
                             </div>
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">Chicken Nuggets*</h3>
-                                <span class="text-sand-600 font-semibold">€8.00</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">Chicken Nuggets*</h3>
+                                    <span class="text-sand-600 font-semibold">€8.00</span>
+                                </div>
+                                <p class="text-anthracite-500 text-sm">Served with fries</p>
                             </div>
-                            <p class="text-anthracite-500 text-sm">Served with fries</p>
+                            <img src="chicken-nuggets.jpg" alt="Chicken Nuggets" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍗</span></div>
                         </div>
-                        <div class="menu-item p-5 rounded-xl border border-sand-200 fade-in">
-                            <div class="flex justify-between items-start mb-1">
-                                <h3 class="text-lg font-semibold text-anthracite-900">French Fries*</h3>
-                                <span class="text-sand-600 font-semibold">€4.00</span>
+                        <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-lg font-semibold text-anthracite-900">French Fries*</h3>
+                                    <span class="text-sand-600 font-semibold">€4.00</span>
+                                </div>
                             </div>
+                            <img src="french-fries.jpg" alt="French Fries" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍟</span></div>
                         </div>
                         <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                             <div class="flex-1">
@@ -999,37 +1069,18 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                 <p class="text-anthracite-500 text-sm">With toppings of your choice</p>
                             </div>
                         </div>
-                        <!-- Ice Cream & Extras — minimalist -->
+                        <!-- Extras & Ice Cream — minimalist -->
                         <div class="mt-8 pt-6 border-t border-sand-200">
 
-                            <!-- Ice Cream header -->
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Ice Cream</span>
-                                <span class="flex-1 h-px bg-sand-200"></span>
-                                <span class="text-xs text-sand-500 tracking-wide">per scoop &nbsp;€2.50</span>
-                            </div>
-
-                            <!-- Flavour pills -->
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Vanilla</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Chocolate</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Banana</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Strawberry</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Cookies</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Stracciatella</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Pistachio</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Yogurt</span>
-                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Bueno</span>
-                            </div>
-
-                            <!-- Extras header -->
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Extras</span>
+                            <!-- Extras header (add-ons for waffles/pancakes) -->
+                            <div class="flex items-center gap-3 mb-1">
+                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Add-ons</span>
                                 <span class="flex-1 h-px bg-sand-200"></span>
                             </div>
+                            <p class="text-xs text-anthracite-400 mb-4">Add to your waffle or pancake</p>
 
                             <!-- Extras list -->
-                            <div class="flex flex-col divide-y divide-sand-200 max-w-xs">
+                            <div class="flex flex-col divide-y divide-sand-200 max-w-xs mb-8">
                                 <div class="flex justify-between items-center py-2">
                                     <span class="text-xs text-anthracite-700">Fresh Fruits</span>
                                     <span class="text-xs text-sand-500">€1.50</span>
@@ -1050,6 +1101,26 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                     <span class="text-xs text-anthracite-700">1 Scoop Ice Cream</span>
                                     <span class="text-xs text-sand-500">€1.50</span>
                                 </div>
+                            </div>
+
+                            <!-- Ice Cream header -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-xs font-medium tracking-widest uppercase text-anthracite-500">Ice Cream</span>
+                                <span class="flex-1 h-px bg-sand-200"></span>
+                                <span class="text-sm font-bold text-sand-600 tracking-wide">per scoop &nbsp;€2.50</span>
+                            </div>
+
+                            <!-- Flavour pills -->
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Vanilla</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Chocolate</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Banana</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Strawberry</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Cookies</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Stracciatella</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Pistachio</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Yogurt</span>
+                                <span class="px-3 py-1 rounded-full bg-sand-100 border border-sand-200 text-xs text-anthracite-600 tracking-wide">Bueno</span>
                             </div>
 
                         </div>
@@ -1130,6 +1201,19 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                     <span class="text-sand-600 font-semibold">€6.00</span>
                                 </div>
                             </div>
+                            <!-- Affogato - Featured -->
+                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center md:col-span-2" style="background:#1a1a1a;">
+                                <img src="AFFOGATO.jpg" alt="Affogato" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <span class="font-bold text-xl text-white mb-1">Affogato</span>
+                                    <div class="flex flex-wrap gap-1.5 mb-2">
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-900 text-amber-200">Espresso</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-900 text-blue-200">Ice Cream</span>
+                                    </div>
+                                    <p class="text-gray-400 text-xs mt-1">A shot of hot espresso poured over vanilla ice cream</p>
+                                    <span class="font-bold text-lg" style="color:#d9a96e;">€5.00</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Hot Coffee -->
@@ -1196,14 +1280,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                     <span class="text-sand-600 font-semibold">€7.00</span>
                                 </div>
                             </div>
-                            <!-- Affogato - Selling Point -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
-                                <img src="AFFOGATO.jpg" alt="Affogato" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Affogato</span>
-                                    <span class="text-orange-600 font-bold text-lg">€5.00</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1512,46 +1589,46 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Signature Cocktails</h4>
                         <div class="grid md:grid-cols-2 gap-3">
                             <!-- Berry Bliss - Featured -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-anthracite-800 bg-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
                                 <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Berry Bliss</span>
+                                    <span class="font-bold text-xl text-white mb-1">Berry Bliss</span>
                                     <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-200 text-yellow-800">Sour</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-200 text-red-800">Berries</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-900 text-yellow-200">Sour</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Berries</span>
                                     </div>
-                                    <p class="text-anthracite-500 text-xs mt-1">Rum, Passoa, blueberry puree, peach juice, lemon juice</p>
-                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                    <p class="text-gray-400 text-xs mt-1">Rum, Passoa, blueberry puree, peach juice, lemon juice</p>
+                                    <span class="text-sand-400 font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
                             <!-- Mastiha Kiss - Featured -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-anthracite-800 bg-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
                                 <img src="mastiha_kiss.jpg" alt="Mastiha Kiss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Mastiha Kiss</span>
+                                    <span class="font-bold text-xl text-white mb-1">Mastiha Kiss</span>
                                     <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 text-sky-700">Mastiha</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-orange-200 text-orange-800">Peach</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-700">Strawberry</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-900 text-sky-200">Mastiha</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-orange-900 text-orange-200">Peach</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Strawberry</span>
                                     </div>
-                                    <p class="text-anthracite-500 text-xs mt-1">Mastiha, lime juice, strawberry puree, peach juice</p>
-                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                    <p class="text-gray-400 text-xs mt-1">Mastiha, lime juice, strawberry puree, peach juice</p>
+                                    <span class="font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
                             <!-- Strawberry Twist - Featured -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-anthracite-800 bg-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
                                 <div class="w-32 h-32 rounded-lg flex-shrink-0 overflow-hidden">
                                     <img src="strawbanan twist.jpg" alt="Strawberry Twist" class="w-full h-full object-cover" style="transform:scale(1.08);">
                                 </div>
                                 <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Strawberry Twist</span>
+                                    <span class="font-bold text-xl text-white mb-1">Strawberry Twist</span>
                                     <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-200 text-yellow-800">Banana</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-700">Strawberry</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium" style="background-color: #713600; color: #FFFFFF;">Chocolaty</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-900 text-yellow-200">Banana</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Strawberry</span>
+                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-950 text-amber-200">Chocolaty</span>
                                     </div>
-                                    <p class="text-anthracite-500 text-xs mt-1">Vodka, strawberry puree, banana juice, chocolate dust</p>
-                                    <span class="text-orange-600 font-bold text-lg">€10.00</span>
+                                    <p class="text-gray-400 text-xs mt-1">Vodka, strawberry puree, banana juice, chocolate dust</p>
+                                    <span class="font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
                         </div>
@@ -1597,36 +1674,36 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                     <div class="mb-6">
                         <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Spritz</h4>
                         <div class="grid md:grid-cols-2 gap-3">
-                            <!-- Aperol Spritz - Selling Point -->
+                            <!-- Aperol Spritz -->
                             <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
                                 <img src="APEROL SPRITZ.jpg" alt="Aperol Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
                                     <span class="font-bold text-xl text-anthracite-900 mb-1">Aperol Spritz</span>
-                                    <span class="text-orange-600 font-bold text-lg">€8.00</span>
+                                    <span class="text-orange-500 font-bold text-lg">€8.00</span>
                                 </div>
                             </div>
-                            <!-- Campari Spritz - Selling Point -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <!-- Campari Spritz -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-red-500 bg-gradient-to-r from-red-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
                                 <img src="CAMPARI SPRITZ.jpg" alt="Campari Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
                                     <span class="font-bold text-xl text-anthracite-900 mb-1">Campari Spritz</span>
-                                    <span class="text-orange-600 font-bold text-lg">€8.00</span>
+                                    <span class="text-red-600 font-bold text-lg">€8.00</span>
                                 </div>
                             </div>
-                            <!-- Limoncello Spritz - Selling Point -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <!-- Limoncello Spritz -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-yellow-400 bg-gradient-to-r from-yellow-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
                                 <img src="LIMONCELLO SPRITZ.jpg" alt="Limoncello Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
                                     <span class="font-bold text-xl text-anthracite-900 mb-1">Limoncello Spritz</span>
-                                    <span class="text-orange-600 font-bold text-lg">€8.00</span>
+                                    <span class="text-yellow-500 font-bold text-lg">€8.00</span>
                                 </div>
                             </div>
-                            <!-- Hugo Spritz - Selling Point -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
+                            <!-- Hugo Spritz -->
+                            <div class="menu-item p-4 rounded-xl border-2 border-lime-400 bg-gradient-to-r from-lime-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
                                 <img src="HUGO SPRITZ.jpg" alt="Hugo Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
                                 <div class="flex flex-col justify-center">
                                     <span class="font-bold text-xl text-anthracite-900 mb-1">Hugo Spritz</span>
-                                    <span class="text-orange-600 font-bold text-lg">€8.00</span>
+                                    <span class="text-lime-600 font-bold text-lg">€8.00</span>
                                 </div>
                             </div>
                         </div>
@@ -1758,14 +1835,17 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </label>
                             <div class="relative">
                                 <i data-lucide="calendar" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                                <input 
-                                    type="date" 
-                                    id="date" 
-                                    name="date" 
+                                <input
+                                    type="text"
+                                    id="date"
+                                    name="date"
                                     required
-                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
+                                    readonly
+                                    placeholder="Select a date"
+                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm cursor-pointer"
                                 >
                             </div>
+                            <p class="text-xs text-anthracite-400 mt-1.5">Closed on Mondays</p>
                         </div>
                         
                         <!-- Time Field -->
@@ -1814,17 +1894,18 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         </div>
                     </div>
                     
-                    <!-- Phone Field (Optional) -->
+                    <!-- Phone Field (Required) -->
                     <div class="mb-6 sm:mb-8">
                         <label for="phone" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                            Phone Number <span class="text-anthracite-400">(Optional)</span>
+                            Phone Number
                         </label>
                         <div class="relative">
                             <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                            <input 
-                                type="tel" 
-                                id="phone" 
+                            <input
+                                type="tel"
+                                id="phone"
                                 name="phone"
+                                required
                                 placeholder="+30 123 456 7890"
                                 class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
                             >
@@ -1921,6 +2002,19 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 </div>
             </div>
             
+            <!-- Google Maps -->
+            <div class="mt-10 mb-6 rounded-xl overflow-hidden opacity-90" style="height:280px;">
+                <iframe
+                    src="https://maps.google.com/maps?q=Piatsa+Cafe+Agia+Pelagia+Crete&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
             <!-- Bottom Bar -->
             <div class="border-t border-anthracite-700 pt-8 flex flex-col md:flex-row justify-between items-center text-anthracite-400 text-sm">
                 <p>&copy; 2024 Piatsa Cafe. All rights reserved.</p>
@@ -1931,6 +2025,9 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
             </div>
         </div>
     </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <!-- JavaScript -->
     <script>
@@ -2019,12 +2116,68 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
         const successMessage = document.getElementById('success-message');
         const newBookingBtn = document.getElementById('new-booking-btn');
         
-        // Set minimum date to today
         const dateInput = document.getElementById('date');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.min = today;
-        
-        // Formspree handles form submission natively - no custom JS needed
+        const timeSelect = document.getElementById('time');
+
+        const allSlots = [
+            { value: '10:00', label: '10:00' },
+            { value: '11:00', label: '11:00' },
+            { value: '12:00', label: '12:00' },
+            { value: '13:00', label: '13:00' },
+            { value: '14:00', label: '14:00' },
+            { value: '15:00', label: '15:00' },
+            { value: '16:00', label: '16:00' },
+            { value: '17:00', label: '17:00' },
+            { value: '18:00', label: '18:00' },
+            { value: '19:00', label: '19:00' },
+            { value: '20:00', label: '20:00' },
+            { value: '21:00', label: '21:00' },
+            { value: '22:00', label: '22:00' }
+        ];
+
+        function populateTimeSlots(day) {
+            timeSelect.innerHTML = '<option value="">Select time</option>';
+            const slots = day === 0
+                ? allSlots.filter(s => parseInt(s.value) >= 11)
+                : allSlots;
+            slots.forEach(slot => {
+                const opt = document.createElement('option');
+                opt.value = slot.value;
+                opt.textContent = slot.label;
+                timeSelect.appendChild(opt);
+            });
+        }
+
+        function resetTimeSelect() {
+            timeSelect.innerHTML = '<option value="">Pick a date first</option>';
+        }
+
+        // Specific closed dates (holidays)
+        const closedDates = ['2025-12-25', '2026-01-01', '2026-08-15'];
+
+        // Flatpickr — Mondays disabled natively (grayed out & unclickable)
+        const fp = flatpickr(dateInput, {
+            minDate: 'today',
+            dateFormat: 'Y-m-d',
+            locale: { firstDayOfWeek: 1 },
+            disable: [
+                function(date) { return date.getDay() === 1; },
+                ...closedDates
+            ],
+            disableMobile: true,
+            onChange: function(selectedDates) {
+                if (!selectedDates.length) { resetTimeSelect(); return; }
+                const selected = selectedDates[0];
+                const diffHours = (selected - new Date()) / 36e5;
+                if (diffHours < 2) {
+                    alert('Bookings must be made at least 2 hours in advance.');
+                    fp.clear();
+                    resetTimeSelect();
+                    return;
+                }
+                populateTimeSlots(selected.getDay());
+            }
+        });
         
         // Gallery Slideshow
         (function() {
@@ -2072,90 +2225,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
             });
         });
 
-        const timeSelect = document.getElementById('time');
-
-        const allSlots = [
-            { value: '08:00', label: '08:00 AM' },
-            { value: '10:00', label: '10:00 AM' },
-            { value: '11:00', label: '11:00 AM' },
-            { value: '12:00', label: '12:00 PM' },
-            { value: '13:00', label: '01:00 PM' },
-            { value: '14:00', label: '02:00 PM' },
-            { value: '15:00', label: '03:00 PM' },
-            { value: '16:00', label: '04:00 PM' },
-            { value: '17:00', label: '05:00 PM' },
-            { value: '18:00', label: '06:00 PM' },
-            { value: '19:00', label: '07:00 PM' },
-            { value: '20:00', label: '08:00 PM' },
-            { value: '21:00', label: '09:00 PM' },
-            { value: '22:00', label: '10:00 PM' },
-            { value: '23:00', label: '11:00 PM' }
-        ];
-
-        // --- Specific closed dates (add holidays here) ---
-        const closedDates = [
-            '2025-12-25',
-            '2026-01-01',
-            '2026-08-15',
-        ];
-
-        dateInput.addEventListener('change', function () {
-            const val = this.value;
-            const selected = new Date(val);
-            const day = selected.getUTCDay(); // 0=Sun 1=Mon 2=Tue ... 6=Sat
-
-            // Block Mondays
-            if (day === 1) {
-                alert('Sorry, we are closed on Mondays. Please choose another day!');
-                this.value = '';
-                resetTimeSelect();
-                return;
-            }
-
-            // Block specific holidays
-            if (closedDates.includes(val)) {
-                alert('Sorry, we are closed on this date. Please choose another day!');
-                this.value = '';
-                resetTimeSelect();
-                return;
-            }
-
-            // Block last-minute bookings (less than 2 hours from now)
-            const now = new Date();
-            const diffHours = (selected - now) / 36e5;
-            if (diffHours < 2) {
-                alert('Bookings must be made at least 2 hours in advance.');
-                this.value = '';
-                resetTimeSelect();
-                return;
-            }
-
-            // Day is valid — populate time slots
-            populateTimeSlots(day);
-        });
-
-        function populateTimeSlots(day) {
-            timeSelect.innerHTML = '<option value="">Select time</option>';
-
-            // Sunday: open from 11:00 AM (later start)
-            const slots = day === 0
-                ? allSlots.filter(slot => {
-                    const hour = parseInt(slot.value.split(':')[0]);
-                    return hour >= 11;
-                })
-                : allSlots; // Tue–Sat: full slots 09:00–23:00
-
-            slots.forEach(slot => {
-                const opt = document.createElement('option');
-                opt.value = slot.value;
-                opt.textContent = slot.label;
-                timeSelect.appendChild(opt);
-            });
-        }
-
-        function resetTimeSelect() {
-            timeSelect.innerHTML = '<option value="">Select time</option>';
-        }
     </script>
     <button 
     id="scroll-top-btn"
@@ -2184,6 +2253,12 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
 >
     <i data-lucide="chevron-up" style="width:20px;height:20px;"></i>
 </button>
+
+<!-- Image Lightbox Overlay -->
+<div id="img-lightbox" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; cursor:zoom-out;">
+    <img id="lightbox-img" src="" alt="" style="max-width:85vw; max-height:80vh; object-fit:contain; border-radius:14px; box-shadow:0 24px 64px rgba(0,0,0,0.6); transition:opacity 0.25s; cursor:default;">
+    <button id="lightbox-close" style="position:absolute; top:16px; right:18px; background:rgba(255,255,255,0.18); border:none; color:#fff; font-size:1.5rem; width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">&#215;</button>
+</div>
 
 <script>
     // Scroll-to-top logic
@@ -2239,6 +2314,32 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
     document.getElementById('hero-prev-mobile')?.addEventListener('click', () => heroGoTo(heroIdx - 1));
     document.getElementById('hero-next-mobile')?.addEventListener('click', () => heroGoTo(heroIdx + 1));
     setInterval(() => heroGoTo(heroIdx + 1), 5000);
+
+    // Image lightbox for menu items
+    const lightbox = document.getElementById('img-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.menu-item img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', e => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxImg.style.opacity = '0';
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => { lightboxImg.style.opacity = '1'; });
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    lightbox.addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-close').addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 
 </body>
