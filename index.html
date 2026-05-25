@@ -16,9 +16,6 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Flatpickr Date Picker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
     <!-- Tailwind Config for Custom Colors -->
     <script>
         tailwind.config = {
@@ -222,136 +219,72 @@
             background: #8B7355;
         }
 
-        /* Booking Section Dark Theme */
-        #booking {
-            background: linear-gradient(135deg, #1a1410 0%, #2d2419 50%, #1a1410 100%) !important;
-            position: relative;
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #1a1410;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+
+        #preloader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #preloader .preloader-logo {
+            width: clamp(120px, 18vw, 180px);
+            height: auto;
+            opacity: 0;
+            transform: scale(0.94);
+            animation: preloaderFadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes preloaderFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        body.preloader-active {
             overflow: hidden;
         }
 
-        #booking::before {
-            content: '';
-            position: absolute;
-            width: 500px; height: 500px;
-            border-radius: 50%;
-            border: 1px solid rgba(176,154,122,0.08);
-            top: -150px; right: -150px;
-            pointer-events: none;
-        }
-
-        #booking::after {
-            content: '';
-            position: absolute;
-            width: 300px; height: 300px;
-            border-radius: 50%;
-            border: 1px solid rgba(176,154,122,0.06);
-            bottom: -80px; left: -80px;
-            pointer-events: none;
-        }
-
-        #booking span.text-sand-600 {
-            color: #B09A7A !important;
-            letter-spacing: .4em !important;
-        }
-
-        #booking h2 {
-            color: #f0ebe0 !important;
-        }
-
-        #booking p.text-anthracite-600 {
-            color: rgba(255,255,255,0.4) !important;
-        }
-
-        #booking-form {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(176,154,122,0.15) !important;
-            backdrop-filter: blur(20px) !important;
-            border-radius: 20px !important;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06) !important;
-        }
-
-        #booking-form label {
-            color: rgba(255,255,255,0.5) !important;
-            font-size: 10px !important;
-            letter-spacing: .15em !important;
-            text-transform: uppercase !important;
-        }
-
-        #booking-form input,
-        #booking-form select {
-            background: rgba(255,255,255,0.06) !important;
-            border: 1px solid rgba(176,154,122,0.2) !important;
-            color: #f0ebe0 !important;
-            border-radius: 12px !important;
-            transition: border-color .3s, background .3s, box-shadow .3s !important;
-        }
-
-        #booking-form input::placeholder {
-            color: rgba(255,255,255,0.2) !important;
-        }
-
-        #booking-form input:focus,
-        #booking-form select:focus {
-            background: rgba(176,154,122,0.08) !important;
-            border-color: #B09A7A !important;
-            box-shadow: 0 0 0 3px rgba(176,154,122,0.12) !important;
-        }
-
-        #booking-form select option {
-            background: #2d2419;
-            color: #f0ebe0;
-        }
-
-        #booking-form .text-anthracite-400 {
-            color: rgba(176,154,122,0.5) !important;
-        }
-
-        #booking-form button[type="submit"] {
-            background: linear-gradient(135deg, #B09A7A, #8B7355) !important;
-            border-radius: 14px !important;
-            font-size: 12px !important;
-            letter-spacing: .12em !important;
-            text-transform: uppercase !important;
-            font-weight: 600 !important;
-            box-shadow: 0 8px 24px rgba(176,154,122,0.3) !important;
-            transition: transform .2s, box-shadow .2s !important;
-        }
-
-        #booking-form button[type="submit"]:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 12px 32px rgba(176,154,122,0.45) !important;
-        }
-
-        #booking-error {
-            background: rgba(239,68,68,0.1) !important;
-            border: 1px solid rgba(239,68,68,0.2) !important;
-            color: #fca5a5 !important;
-            border-radius: 10px !important;
-        }
-
-        #success-message {
-            background: rgba(34,197,94,0.08) !important;
-            border: 1px solid rgba(34,197,94,0.15) !important;
-            border-radius: 20px !important;
-        }
-
-        #success-message h3 { color: #86efac !important; }
-        #success-message p  { color: rgba(134,239,172,0.7) !important; }
-
-        /* Flatpickr customisation */
-        .flatpickr-calendar { font-family: 'Montserrat', sans-serif; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border: 1px solid #e8ddd0; }
-        .flatpickr-day.selected, .flatpickr-day.selected:hover, .flatpickr-day.selected:focus { background: #b8895a; border-color: #b8895a; }
-        .flatpickr-day:hover { background: #f5ede0; border-color: #f5ede0; }
-        .flatpickr-day.today { border-color: #b8895a; }
-        .flatpickr-day.today:hover { background: #f5ede0; }
-        .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: #d4c4b0 !important; background: transparent; cursor: not-allowed; text-decoration: line-through; }
-        .flatpickr-months .flatpickr-month, .flatpickr-weekdays { background: #f5ede0; }
-        .flatpickr-current-month .flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year { color: #3d3028; }
-        .flatpickr-weekday { color: #8B6044; font-weight: 600; }
-        span.flatpickr-weekday[aria-label="Monday"] { color: #d4c4b0; }
     </style>
 </head>
-<body class="font-sans bg-sand-50 text-anthracite-800">
+<body class="font-sans bg-sand-50 text-anthracite-800 preloader-active">
+
+    <!-- Preloader -->
+    <div id="preloader" aria-hidden="true">
+        <img src="logo.png" alt="" class="preloader-logo">
+    </div>
+    <script>
+        (function() {
+            var preloader = document.getElementById('preloader');
+            var minDisplay = 900;
+            var startTime = Date.now();
+            function hide() {
+                var elapsed = Date.now() - startTime;
+                var wait = Math.max(0, minDisplay - elapsed);
+                setTimeout(function() {
+                    preloader.classList.add('is-hidden');
+                    document.body.classList.remove('preloader-active');
+                }, wait);
+            }
+            if (document.readyState === 'complete') {
+                hide();
+            } else {
+                window.addEventListener('load', hide);
+                setTimeout(hide, 3500);
+            }
+        })();
+    </script>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-anthracite-800" id="navbar">
@@ -366,11 +299,7 @@
                 <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#home" class="text-sm font-medium text-white hover:text-sand-400 transition-colors">Home</a>
                     <a href="#menu" class="text-sm font-medium text-white hover:text-sand-400 transition-colors">Menu</a>
-                    <a href="#booking" class="text-sm font-medium text-white hover:text-sand-400 transition-colors">Book Table</a>
                     <a href="#contact" class="text-sm font-medium text-white hover:text-sand-400 transition-colors">Contact</a>
-                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-lg text-sm font-medium">
-                        Reserve Now
-                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -389,11 +318,7 @@
                 <div class="mt-12 sm:mt-16 flex flex-col space-y-4 sm:space-y-6">
                     <a href="#home" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Home</a>
                     <a href="#menu" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Menu</a>
-                    <a href="#booking" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Book Table</a>
                     <a href="#contact" class="text-base sm:text-lg font-medium text-anthracite-800 hover:text-sand-600 transition-colors mobile-link">Contact</a>
-                    <a href="#booking" class="btn-primary bg-sand-500 text-white px-6 py-3 rounded-lg text-center font-medium mobile-link text-sm">
-                        Reserve Now
-                    </a>
                 </div>
             </div>
         </div>
@@ -484,7 +409,7 @@
                     <p style="color:#4a4a4a; font-size:0.82rem; line-height:1.8; margin-bottom:22px; font-weight:300; font-family:'Montserrat',sans-serif;">
                         Since 1989, handcrafted cocktails, all-day snacks &amp; specialty coffee — right by the Cretan sea.
                     </p>
-                    
+
                 </div>
 
             </div>
@@ -497,30 +422,6 @@
         </div>
 
     </section>
-    <!-- Image CTA Section: Menus & Book Today -->
-    <section class="py-12 md:py-16 bg-sand-50 relative overflow-hidden">
-        <!-- Decorative wavy lines background -->
-        <div class="absolute inset-0 pointer-events-none" style="opacity:0.4; z-index:0;">
-            <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%; height:100%;">
-                <path d="M-50 100 C100 60 250 140 400 100 C550 60 700 140 850 100" stroke="#d9c8b8" stroke-width="1" fill="none"/>
-                <path d="M-50 200 C100 160 250 240 400 200 C550 160 700 240 850 200" stroke="#d9c8b8" stroke-width="1" fill="none"/>
-                <path d="M-50 300 C100 260 250 340 400 300 C550 260 700 340 850 300" stroke="#d9c8b8" stroke-width="1" fill="none"/>
-            </svg>
-        </div>
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <!-- Menus Card -->
-                <a href="#menu" class="group relative overflow-hidden rounded-2xl block" style="aspect-ratio: 4/3;">
-                    <img src="menu.jpg" alt="Our Menus" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </a>
-                <!-- Book Today Card -->
-                <a href="#booking" class="group relative overflow-hidden rounded-2xl block" style="aspect-ratio: 4/3;">
-                    <img src="book_today.jpg" alt="Book Today" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </a>
-            </div>
-        </div>
-    </section>
-
     <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
@@ -1581,52 +1482,119 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                     </div>
 
                     <!-- Signature Cocktails -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Signature Cocktails</h4>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <!-- Berry Bliss - Featured -->
-                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
-                                <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-white mb-1">Berry Bliss</span>
-                                    <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-900 text-yellow-200">Sour</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Berries</span>
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Signature Cocktails</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <!-- Items -->
+                        <div class="px-6 sm:px-10 pb-8 flex flex-col">
+
+                            <!-- White Chocolate & Raspberry Daiquiri -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">White Chocolate &amp; Raspberry Daiquiri</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Fat-washed rum · raspberry · vanilla</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€11</span>
                                     </div>
-                                    <p class="text-gray-400 text-xs mt-1">Rum, Passoa, blueberry puree, peach juice, lemon juice</p>
-                                    <span class="text-sand-400 font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
-                            <!-- Mastiha Kiss - Featured -->
-                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
-                                <img src="mastiha_kiss.jpg" alt="Mastiha Kiss" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-white mb-1">Mastiha Kiss</span>
-                                    <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-900 text-sky-200">Mastiha</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-orange-900 text-orange-200">Peach</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Strawberry</span>
+
+                            <!-- Aegean Gin & Tonic -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Aegean Gin &amp; Tonic</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Strawberry gin · mastiha · spearmint</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€8</span>
                                     </div>
-                                    <p class="text-gray-400 text-xs mt-1">Mastiha, lime juice, strawberry puree, peach juice</p>
-                                    <span class="font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
-                            <!-- Strawberry Twist - Featured -->
-                            <div class="menu-item p-4 rounded-xl shadow-lg overflow-hidden flex gap-4 items-center" style="background:#1a1a1a;">
-                                <div class="w-32 h-32 rounded-lg flex-shrink-0 overflow-hidden">
-                                    <img src="strawbanan twist.jpg" alt="Strawberry Twist" class="w-full h-full object-cover" style="transform:scale(1.08);">
-                                </div>
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-white mb-1">Strawberry Twist</span>
-                                    <div class="flex flex-wrap gap-1.5 mb-2">
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-900 text-yellow-200">Banana</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-900 text-red-200">Strawberry</span>
-                                        <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-950 text-amber-200">Chocolaty</span>
+
+                            <!-- Tropical Mezcal -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Tropical Mezcal</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Siete Misterios · passion fruit · mango · coconut</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€12</span>
                                     </div>
-                                    <p class="text-gray-400 text-xs mt-1">Vodka, strawberry puree, banana juice, chocolate dust</p>
-                                    <span class="font-bold text-lg" style="color:#d9a96e;">€10.00</span>
                                 </div>
                             </div>
+
+                            <!-- Mandarin Estivo -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Mandarin Estivo</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Mandarin cordial · elderflower · prosecco</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Berry Bliss -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Berry Bliss</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Rum · Passoa · blueberry purée · peach juice · lemon juice</p>
+                                        </div>
+                                        <div class="flex items-center gap-3 flex-shrink-0 mt-[2px]">
+                                            <span class="font-semibold text-sm" style="color:#d9a96e;">€10</span>
+                                            <div class="menu-item">
+                                                <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" style="width:52px; height:52px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mastiha Kiss -->
+                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Mastiha Kiss</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Mastiha · lime juice · strawberry purée · peach juice</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€10</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Strawberry Twist -->
+                            <div class="flex items-start gap-3 pt-5">
+                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Strawberry Twist</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Vodka · strawberry purée · banana juice · chocolate dust</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€10</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -1641,9 +1609,7 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                                         <span class="text-sand-600 font-semibold">€6.50</span>
                                     </div>
                                 </div>
-                                <div class="w-24 h-24 bg-gradient-to-br from-green-200 to-emerald-200 rounded-xl flex-shrink-0 flex items-center justify-center">
-                                    <span class="text-4xl">🌿</span>
-                                </div>
+                                <img src="mojito.png" alt="Virgin Mojito" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
                             <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
                                 <div class="flex-1">
@@ -1667,41 +1633,60 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                     </div>
 
                     <!-- Spritz -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Spritz</h4>
-                        <div class="grid md:grid-cols-2 gap-3">
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Spritz</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <!-- Items -->
+                        <div class="px-6 sm:px-10 pb-8 flex flex-col">
+
                             <!-- Aperol Spritz -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-orange-400 bg-gradient-to-r from-orange-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
-                                <img src="APEROL SPRITZ.jpg" alt="Aperol Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Aperol Spritz</span>
-                                    <span class="text-orange-500 font-bold text-lg">€8.00</span>
+                            <div class="flex items-baseline gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Aperol Spritz</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€8</span>
+                                    </div>
                                 </div>
                             </div>
+
                             <!-- Campari Spritz -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-red-500 bg-gradient-to-r from-red-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
-                                <img src="CAMPARI SPRITZ.jpg" alt="Campari Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Campari Spritz</span>
-                                    <span class="text-red-600 font-bold text-lg">€8.00</span>
+                            <div class="flex items-baseline gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Campari Spritz</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€8</span>
+                                    </div>
                                 </div>
                             </div>
+
                             <!-- Limoncello Spritz -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-yellow-400 bg-gradient-to-r from-yellow-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
-                                <img src="LIMONCELLO SPRITZ.jpg" alt="Limoncello Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Limoncello Spritz</span>
-                                    <span class="text-yellow-500 font-bold text-lg">€8.00</span>
+                            <div class="flex items-baseline gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Limoncello Spritz</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€8</span>
+                                    </div>
                                 </div>
                             </div>
+
                             <!-- Hugo Spritz -->
-                            <div class="menu-item p-4 rounded-xl border-2 border-lime-400 bg-gradient-to-r from-lime-50 to-white shadow-lg overflow-hidden flex gap-4 items-center">
-                                <img src="HUGO SPRITZ.jpg" alt="Hugo Spritz" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
-                                <div class="flex flex-col justify-center">
-                                    <span class="font-bold text-xl text-anthracite-900 mb-1">Hugo Spritz</span>
-                                    <span class="text-lime-600 font-bold text-lg">€8.00</span>
+                            <div class="flex items-baseline gap-3 pt-5">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Hugo Spritz</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€8</span>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -1782,157 +1767,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
             <div class="mt-12 text-center">
                 <p class="text-anthracite-400 text-sm">*Frozen products</p>
                 <p class="text-anthracite-400 text-sm mt-2">Please inform the staff of any allergies or intolerances you may have</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="py-12 md:py-20 lg:py-32 bg-sand-100">
-        <div class="w-full px-4 sm:px-6 lg:px-12">
-            <div class="max-w-xl mx-auto">
-                <!-- Section Header -->
-                <div class="text-center mb-8 sm:mb-12 fade-in">
-                    <span class="text-sand-600 text-xs sm:text-sm font-medium tracking-widest uppercase">Reservations</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-anthracite-900 mt-3 mb-4">
-                        Book Your Table
-                    </h2>
-                    <p class="text-anthracite-600 text-sm sm:text-base">
-                        Reserve your spot for a perfect coffee experience. Walk-ins welcome too!
-                    </p>
-                </div>
-                
-                <!-- Booking Form -->
-                        <form action="https://formspree.io/f/mnjwpooj" method="POST" class="bg-white rounded-2xl shadow-lg p-5 sm:p-6 md:p-8 lg:p-10 fade-in" id="booking-form">
-                    <div id="booking-error" class="hidden mb-4 sm:mb-6 rounded-xl border border-red-200 bg-red-50 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-red-800"></div>
-                    <!-- Name Field -->
-                    <div class="mb-4 sm:mb-6">
-                        <label for="name" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                            Full Name
-                        </label>
-                        <div class="relative">
-                            <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
-                                required
-                                placeholder="John Doe"
-                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
-                            >
-                        </div>
-                    </div>
-                    
-                    <!-- Date & Time Row -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                        <!-- Date Field -->
-                        <div>
-                            <label for="date" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                                Date
-                            </label>
-                            <div class="relative">
-                                <i data-lucide="calendar" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                                <input
-                                    type="text"
-                                    id="date"
-                                    name="date"
-                                    required
-                                    readonly
-                                    placeholder="Select a date"
-                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm cursor-pointer"
-                                >
-                            </div>
-                            <p class="text-xs text-anthracite-400 mt-1.5">Closed on Mondays</p>
-                        </div>
-                        
-                        <!-- Time Field -->
-                        <div>
-                            <label for="time" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                                Time
-                            </label>
-                            <div class="relative">
-                                <i data-lucide="clock" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                                <select 
-                                    id="time" 
-                                    name="time" 
-                                    required
-                                    class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none text-sm"
-                                >
-                                    <option value="">Pick a date first</option>
-                                </select>
-                                <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5 absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Guests Field -->
-                    <div class="mb-4 sm:mb-6">
-                        <label for="guests" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                            Number of Guests
-                        </label>
-                        <div class="relative">
-                            <i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                            <select 
-                                id="guests" 
-                                name="guests" 
-                                required
-                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none appearance-none text-sm"
-                            >
-                                <option value="">Select guests</option>
-                                <option value="1">1 Person</option>
-                                <option value="2">2 People</option>
-                                <option value="3">3 People</option>
-                                <option value="4">4 People</option>
-                                <option value="5">5 People</option>
-                                <option value="6">6 People</option>
-                                <option value="7+">7+ People</option>
-                            </select>
-                            <i data-lucide="chevron-down" class="w-4 h-4 sm:w-5 sm:h-5 absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-anthracite-400 pointer-events-none"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Phone Field (Required) -->
-                    <div class="mb-6 sm:mb-8">
-                        <label for="phone" class="block text-xs sm:text-sm font-medium text-anthracite-700 mb-1.5 sm:mb-2">
-                            Phone Number
-                        </label>
-                        <div class="relative">
-                            <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5 absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-anthracite-400"></i>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                required
-                                placeholder="+30 123 456 7890"
-                                class="form-input w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-sand-300 rounded-xl bg-sand-50 text-anthracite-800 focus:outline-none text-sm"
-                            >
-                        </div>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button 
-                        type="submit" 
-                        class="btn-primary w-full bg-sand-500 text-white py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-lg"
-                    >
-                        <i data-lucide="check-circle" class="w-4 h-4 sm:w-5 sm:h-5 inline mr-2"></i>
-                        Confirm Reservation
-                    </button>
-                </form>
-                
-                <!-- Success Message (Hidden by default) -->
-                <div class="hidden bg-green-50 border border-green-200 rounded-2xl p-8 text-center fade-in" id="success-message">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="check" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-green-800 mb-2">Reservation Confirmed!</h3>
-                    <p class="text-green-600 mb-4">We look forward to welcoming you at Piatsa Cafe.</p>
-                    <button 
-                        type="button" 
-                        id="new-booking-btn"
-                        class="text-green-700 font-medium hover:underline"
-                    >
-                        Make another reservation
-                    </button>
-                </div>
             </div>
         </div>
     </section>
@@ -2023,21 +1857,8 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
     </footer>
 
     <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <!-- JavaScript -->
     <script>
-        /**
-         * Booking: POSTs to Google Apps Script Web App → creates event on YOUR default Calendar.
-         * 1. Deploy google-apps-script/BookingBackend.gs (Anyone can access).
-         * 2. Script property BOOKING_SECRET only (same string as PIATSA_BOOKING.secret below).
-         * 3. Paste Web App URL + secret below.
-         */
-        window.PIATSA_BOOKING = {
-            endpoint: 'https://script.google.com/macros/s/AKfycbywhXqamlZmlh0yvW7KbFuVSWbegEoBSHoFGTnn6ctPMN8d3_5Vvn-XzpH7zVFjPTwJ/exec', // e.g. 'https://script.google.com/macros/s/AKfycb.../exec'
-            secret: 'piatsa-booking-1989',  // se as Script property BOOKING_SECRET
-        };
-
         // Initialize Lucide icons
         lucide.createIcons();
         
@@ -2105,74 +1926,6 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                 activeCategory.classList.remove('hidden');
                 activeCategory.classList.add('active');
             });
-        });
-        
-        // Booking Form Handling
-        const bookingForm = document.getElementById('booking-form');
-        const successMessage = document.getElementById('success-message');
-        const newBookingBtn = document.getElementById('new-booking-btn');
-        
-        const dateInput = document.getElementById('date');
-        const timeSelect = document.getElementById('time');
-
-        const allSlots = [
-            { value: '10:00', label: '10:00' },
-            { value: '11:00', label: '11:00' },
-            { value: '12:00', label: '12:00' },
-            { value: '13:00', label: '13:00' },
-            { value: '14:00', label: '14:00' },
-            { value: '15:00', label: '15:00' },
-            { value: '16:00', label: '16:00' },
-            { value: '17:00', label: '17:00' },
-            { value: '18:00', label: '18:00' },
-            { value: '19:00', label: '19:00' },
-            { value: '20:00', label: '20:00' },
-            { value: '21:00', label: '21:00' },
-            { value: '22:00', label: '22:00' }
-        ];
-
-        function populateTimeSlots(day) {
-            timeSelect.innerHTML = '<option value="">Select time</option>';
-            const slots = day === 0
-                ? allSlots.filter(s => parseInt(s.value) >= 11)
-                : allSlots;
-            slots.forEach(slot => {
-                const opt = document.createElement('option');
-                opt.value = slot.value;
-                opt.textContent = slot.label;
-                timeSelect.appendChild(opt);
-            });
-        }
-
-        function resetTimeSelect() {
-            timeSelect.innerHTML = '<option value="">Pick a date first</option>';
-        }
-
-        // Specific closed dates (holidays)
-        const closedDates = ['2025-12-25', '2026-01-01', '2026-08-15'];
-
-        // Flatpickr — Mondays disabled natively (grayed out & unclickable)
-        const fp = flatpickr(dateInput, {
-            minDate: 'today',
-            dateFormat: 'Y-m-d',
-            locale: { firstDayOfWeek: 1 },
-            disable: [
-                function(date) { return date.getDay() === 1; },
-                ...closedDates
-            ],
-            disableMobile: true,
-            onChange: function(selectedDates) {
-                if (!selectedDates.length) { resetTimeSelect(); return; }
-                const selected = selectedDates[0];
-                const diffHours = (selected - new Date()) / 36e5;
-                if (diffHours < 2) {
-                    alert('Bookings must be made at least 2 hours in advance.');
-                    fp.clear();
-                    resetTimeSelect();
-                    return;
-                }
-                populateTimeSlots(selected.getDay());
-            }
         });
         
         // Gallery Slideshow
