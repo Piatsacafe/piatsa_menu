@@ -1351,133 +1351,221 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
 
                 <!-- Cocktails & Spirits Category -->
                 <div class="menu-category hidden" id="cocktails">
-                    <!-- Cocktails -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Classic Cocktails</h4>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Mojito</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Havana Club Añejo, lime, fresh mint, black sugar, soda</p>
+
+                    <!-- =====================================================
+                         FROZEN FAVOURITES — Featured Daiquiri Pair (dark)
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="background:#1a1a1a;">
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Frozen Favourites</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <!-- Items -->
+                        <div class="px-6 sm:px-10 pb-8 flex flex-col gap-6">
+
+                            <!-- Strawberry Daiquiri -->
+                            <div class="flex items-center gap-5">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="strawberry_daiquiri.jpg" alt="Strawberry Daiquiri" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
                                 </div>
-                                <img src="mojito.png" alt="Mojito" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                <div class="w-24 h-24 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍹</span></div>
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Strawberry Daiquiri</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <div class="flex items-center gap-2 flex-wrap">
+                                                <span class="font-semibold text-base sm:text-lg" style="color:#f5f0ea;">Strawberry Daiquiri</span>
+                                                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wider" style="background:rgba(217,169,110,0.15); color:#d9a96e;">SERVED FROZEN</span>
+                                            </div>
+                                            <p class="text-xs mt-1" style="color:rgba(245,240,234,0.5);">White rum · fresh strawberry · lime</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-base mt-[2px]" style="color:#d9a96e;">€9</span>
                                     </div>
-                                    <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 text-sky-700">Served Frozen</span>
-                                </div>
-                                <img src="strawberry_daiquiri.jpg" alt="Strawberry Daiquiri" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Mango Daiquiri</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 text-sky-700">Served Frozen</span>
-                                </div>
-                                <img src="mango_daiquiri.jpg" alt="Mango Daiquiri" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Sex on the Beach</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Vodka, peach schnapps, orange juice, cranberry juice</p>
-                                </div>
-                                <img src="sex-on-the-beach.png" alt="Sex on the Beach" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                <div class="w-24 h-24 bg-gradient-to-br from-orange-200 to-pink-200 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍑</span></div>
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Caipirinha</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Cachaça rum, fresh lime, black sugar</p>
-                                </div>
-                                <div class="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden">
-                                    <img src="caipirinia .jpg" alt="Caipirinha" class="w-full h-full object-cover" style="transform:scale(1.08);">
                                 </div>
                             </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Moscow Mule</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Vodka, lime juice, ginger beer</p>
+
+                            <!-- Mango Daiquiri -->
+                            <div class="flex items-center gap-5">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="mango_daiquiri.jpg" alt="Mango Daiquiri" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
                                 </div>
-                                <img src="moscow-mule.png" alt="Moscow Mule" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                <div class="w-24 h-24 bg-gradient-to-br from-copper-200 to-orange-200 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🫚</span></div>
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Pina Colada</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <div class="flex items-center gap-2 flex-wrap">
+                                                <span class="font-semibold text-base sm:text-lg" style="color:#f5f0ea;">Mango Daiquiri</span>
+                                                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wider" style="background:rgba(217,169,110,0.15); color:#d9a96e;">SERVED FROZEN</span>
+                                            </div>
+                                            <p class="text-xs mt-1" style="color:rgba(245,240,234,0.5);">White rum · fresh mango · lime</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-base mt-[2px]" style="color:#d9a96e;">€9</span>
                                     </div>
-                                    <p class="text-anthracite-500 text-sm">White rum, Batida de Coco, coconut puree, pineapple juice</p>
-                                </div>
-                                <img src="PINA COLADA.png" alt="Pina Colada" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Mai Tai</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Rum, tequila, triple sec, pineapple juice, orange juice, grenadine</p>
-                                </div>
-                                <div class="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden">
-                                    <img src="mai tai .jpg" alt="Mai Tai" class="w-full h-full object-cover" style="transform:scale(1.08);">
                                 </div>
                             </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Margarita</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Tequila, Cointreau, lemon juice, sugar, salt</p>
+
+                        </div>
+                    </div>
+
+                    <!-- =====================================================
+                         CLASSIC COCKTAILS — minimalist list
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Classic Cocktails</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <!-- Items -->
+                        <div class="px-6 sm:px-10 pb-8 flex flex-col">
+
+                            <!-- Mojito -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="mojito.png" alt="Mojito" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
                                 </div>
-                                <div class="w-24 h-24 rounded-xl flex-shrink-0 overflow-hidden">
-                                    <img src="margharita.jpg" alt="Margarita" class="w-full h-full object-cover" style="transform:scale(1.08);">
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Mojito</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Havana Club Añejo · lime · fresh mint · black sugar · soda</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900 flex items-center gap-2">
-                                            Pornstar Martini
-                                            <span class="bg-anthracite-800 text-white text-xs px-2 py-1 rounded-full font-medium">POPULAR</span>
-                                        </h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
-                                    </div>
-                                    <p class="text-anthracite-500 text-sm">Vanilla vodka, passion fruit puree, Passoa, lime juice, shot of Prosecco</p>
+
+                            <!-- Sex on the Beach -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="sex-on-the-beach.png" alt="Sex on the Beach" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
                                 </div>
-                                <img src="pornstar martini.jpg" alt="Pornstar Martini" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
-                            </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Paloma</h3>
-                                        <span class="text-sand-600 font-semibold">€9.00</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Sex on the Beach</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Vodka · peach schnapps · orange juice · cranberry juice</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
                                     </div>
-                                    <p class="text-anthracite-500 text-sm">Tequila, grapefruit soda, lime juice, salt</p>
                                 </div>
-                                <img src="paloma.png" alt="Paloma" class="w-24 h-24 rounded-xl object-cover flex-shrink-0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                <div class="w-24 h-24 bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl flex-shrink-0 items-center justify-center" style="display:none"><span class="text-4xl">🍊</span></div>
                             </div>
+
+                            <!-- Caipirinha -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="caipirinia .jpg" alt="Caipirinha" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Caipirinha</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Cachaça rum · fresh lime · black sugar</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Moscow Mule -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="moscow-mule.png" alt="Moscow Mule" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Moscow Mule</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Vodka · lime juice · ginger beer</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pina Colada -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="PINA COLADA.png" alt="Pina Colada" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Pina Colada</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">White rum · Batida de Coco · coconut purée · pineapple juice</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mai Tai -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="mai tai .jpg" alt="Mai Tai" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Mai Tai</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Rum · tequila · triple sec · pineapple juice · orange juice · grenadine</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Margarita -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="margharita.jpg" alt="Margarita" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Margarita</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Tequila · Cointreau · lemon juice · sugar · salt</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pornstar Martini -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="pornstar martini.jpg" alt="Pornstar Martini" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <div class="flex items-center gap-2 flex-wrap">
+                                                <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Pornstar Martini</span>
+                                                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wider" style="background:rgba(217,169,110,0.15); color:#d9a96e;">POPULAR</span>
+                                            </div>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Vanilla vodka · passion fruit purée · Passoa · lime juice · shot of Prosecco</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paloma -->
+                            <div class="flex items-center gap-5 pt-5">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="paloma.png" alt="Paloma" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div>
+                                            <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Paloma</span>
+                                            <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Tequila · grapefruit soda · lime juice · salt</p>
+                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€9</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -1493,8 +1581,12 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         <div class="px-6 sm:px-10 pb-8 flex flex-col">
 
                             <!-- White Chocolate & Raspberry Daiquiri -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0" style="width:68px; height:68px;">
+                                    <img src="white_chocolate_daiquiri.jpg" alt="White Chocolate &amp; Raspberry Daiquiri"
+                                         onerror="this.style.visibility='hidden';"
+                                         style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1507,8 +1599,12 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
 
                             <!-- Aegean Gin & Tonic -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0" style="width:68px; height:68px;">
+                                    <img src="aegean_gin_tonic.jpg" alt="Aegean Gin &amp; Tonic"
+                                         onerror="this.style.visibility='hidden';"
+                                         style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1521,8 +1617,12 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
 
                             <!-- Tropical Mezcal -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0" style="width:68px; height:68px;">
+                                    <img src="tropical_mezcal.jpg" alt="Tropical Mezcal"
+                                         onerror="this.style.visibility='hidden';"
+                                         style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1535,8 +1635,10 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
 
                             <!-- Mandarin Estivo -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="Mandarin Estivo.PNG" alt="Mandarin Estivo" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1549,27 +1651,26 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
 
                             <!-- Berry Bliss -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
                                             <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Berry Bliss</span>
                                             <p class="text-xs mt-1" style="color:rgba(26,20,16,0.45);">Rum · Passoa · blueberry purée · peach juice · lemon juice</p>
                                         </div>
-                                        <div class="flex items-center gap-3 flex-shrink-0 mt-[2px]">
-                                            <span class="font-semibold text-sm" style="color:#d9a96e;">€10</span>
-                                            <div class="menu-item">
-                                                <img src="BERRY BLISS COCKTAIL.jpg" alt="Berry Bliss" style="width:52px; height:52px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
-                                            </div>
-                                        </div>
+                                        <span class="flex-shrink-0 font-semibold text-sm mt-[2px]" style="color:#d9a96e;">€10</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Mastiha Kiss -->
-                            <div class="flex items-start gap-3 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="mastiha_kiss.jpg" alt="Mastiha Kiss" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1582,8 +1683,10 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                             </div>
 
                             <!-- Strawberry Twist -->
-                            <div class="flex items-start gap-3 pt-5">
-                                <span class="flex-shrink-0 text-[8px] mt-[5px]" style="color:#d9a96e;">●</span>
+                            <div class="flex items-center gap-5 pt-5">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="strawbanan twist.jpg" alt="Strawberry Twist" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-start justify-between gap-4">
                                         <div>
@@ -1598,37 +1701,58 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         </div>
                     </div>
 
-                    <!-- Mocktails -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Mocktails - Alcohol Free </h4>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Virgin Mojito</h3>
-                                        <span class="text-sand-600 font-semibold">€6.50</span>
+                    <!-- =====================================================
+                         MOCKTAILS — minimalist list
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <!-- Header -->
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Mocktails &middot; Alcohol Free</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <!-- Items -->
+                        <div class="px-6 sm:px-10 pb-8 flex flex-col">
+
+                            <!-- Virgin Mojito -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="mojito.png" alt="Virgin Mojito" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Virgin Mojito</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€6.50</span>
                                     </div>
                                 </div>
-                                <img src="mojito.png" alt="Virgin Mojito" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Virgin Pina Colada</h3>
-                                        <span class="text-sand-600 font-semibold">€6.50</span>
+
+                            <!-- Virgin Pina Colada -->
+                            <div class="flex items-center gap-5 py-5" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="PINA COLADA.png" alt="Virgin Pina Colada" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Virgin Pina Colada</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€6.50</span>
                                     </div>
                                 </div>
-                                <img src="PINA COLADA.png" alt="Virgin Pina Colada" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
-                            <div class="menu-item p-4 rounded-xl border border-sand-200 fade-in flex gap-4 items-start">
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-start mb-1">
-                                        <h3 class="text-lg font-semibold text-anthracite-900">Passion Fruit Lover</h3>
-                                        <span class="text-sand-600 font-semibold">€6.50</span>
+
+                            <!-- Passion Fruit Lover -->
+                            <div class="flex items-center gap-5 pt-5">
+                                <div class="menu-item flex-shrink-0">
+                                    <img src="PASSION FRUIT LOVER.jpg" alt="Passion Fruit Lover" style="width:68px; height:68px; object-fit:cover; border-radius:50%; cursor:zoom-in; border:2px solid rgba(217,169,110,0.35);">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-baseline justify-between gap-4">
+                                        <span class="font-semibold text-sm sm:text-base" style="color:#1a1410;">Passion Fruit Lover</span>
+                                        <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€6.50</span>
                                     </div>
                                 </div>
-                                <img src="PASSION FRUIT LOVER.jpg" alt="Passion Fruit Lover" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
                             </div>
+
                         </div>
                     </div>
 
@@ -1690,74 +1814,283 @@ body{background:#080808;font-family:'Helvetica Neue',Arial,sans-serif}
                         </div>
                     </div>
 
-                    <!-- Other Spirits -->
-                    <!-- Wine -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Wine by glass</h4>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>White Dry / Rose Dry / Red Dry</span><span class="text-sand-600 font-semibold">€4.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Sangria</span><span class="text-sand-600 font-semibold">€5.00</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Prosecco</span><span class="text-sand-600 font-semibold">€4.50</span></div></div>
-                            <div class="menu-item p-4 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Moscato D'Asti 187ml</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+                    <!-- =====================================================
+                         WINE BY GLASS — minimalist list
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Wine by Glass</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">White Dry / Rose Dry / Red Dry</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€4</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Sangria</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€5</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Prosecco</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€4.50</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Moscato D'Asti 187ml</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Whiskey -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Whiskey</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Chivas</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Jack Daniel's</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Jameson</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Jameson Black Barrel</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Cutty Sark</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+
+                    <!-- =====================================================
+                         WHISKEY
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Whiskey</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Chivas</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€9</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Jack Daniel's</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€9</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Jameson</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Jameson Black Barrel</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€9</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Cutty Sark</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Gin -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Gin</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Bombay Sapphire</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Tanqueray</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Gordon's</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+
+                    <!-- =====================================================
+                         GIN
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Gin</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Bombay Sapphire</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Tanqueray</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Gordon's</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Vodka -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Vodka</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Stolichnaya</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Smirnoff</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Absolut</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+
+                    <!-- =====================================================
+                         VODKA
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Vodka</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Stolichnaya</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Smirnoff</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Absolut</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Rum -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Rum</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Bacardi</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Havana</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Captain Morgan</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+
+                    <!-- =====================================================
+                         RUM
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Rum</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Bacardi</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Havana</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Captain Morgan</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Cognac -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Cognac</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Courvoisier</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>METAXA 5</span><span class="text-sand-600 font-semibold">€6.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>METAXA 7</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
+
+                    <!-- =====================================================
+                         COGNAC
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Cognac</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Courvoisier</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€9</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">METAXA 5</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€6</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">METAXA 7</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Liqueur -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-anthracite-800 mb-3 text-lg">Liqueur / Aperitif</h4>
-                        <div class="grid md:grid-cols-3 gap-3 text-sm">
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Amaretto</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Baileys</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Ouzo</span><span class="text-sand-600 font-semibold">€5.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Campari</span><span class="text-sand-600 font-semibold">€7.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Bellini</span><span class="text-sand-600 font-semibold">€5.00</span></div></div>
-                            <div class="menu-item p-3 rounded-lg border border-sand-200"><div class="flex justify-between"><span>Courvoisier</span><span class="text-sand-600 font-semibold">€9.00</span></div></div>
+
+                    <!-- =====================================================
+                         LIQUEUR / APERITIF
+                         ===================================================== -->
+                    <div class="mb-10 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08);">
+                        <div class="flex items-center gap-4 px-6 sm:px-10 pt-8 pb-6">
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                            <span class="text-xs font-semibold tracking-[0.3em] uppercase" style="color:#d9a96e; white-space:nowrap;">Liqueur &middot; Aperitif</span>
+                            <div class="flex-1 h-px" style="background:rgba(217,169,110,0.35);"></div>
+                        </div>
+                        <div class="px-6 sm:px-10 pb-8 grid sm:grid-cols-2 gap-x-10">
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Amaretto</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Baileys</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Ouzo</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€5</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4" style="border-bottom:1px solid rgba(0,0,0,0.07);">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Campari</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Bellini</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€5</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline gap-3 py-4">
+                                <span class="flex-shrink-0 text-[8px]" style="color:#d9a96e;">●</span>
+                                <div class="flex-1 min-w-0 flex items-baseline justify-between gap-4">
+                                    <span class="font-semibold text-sm" style="color:#1a1410;">Courvoisier</span>
+                                    <span class="flex-shrink-0 font-semibold text-sm" style="color:#d9a96e;">€9</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
